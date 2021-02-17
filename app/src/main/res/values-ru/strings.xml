@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">bilim</string>
+    <string name="logo_name">Bilim</string>
+    <string name="app_slogan">Bіlіmdіge dúnıe jaryq</string>
+    <string name="sign_in_text">Войти</string>
+    <string name="login_hint_text">Логин</string>
+    <string name="password_text">Пароль</string>
+    <string name="enter_button_text">Продолжить</string>
+    <string name="new_user_text">Я новый пользователь.</string>
+    <string name="registration_text">Зарегистрироваться</string>
+</resources>
