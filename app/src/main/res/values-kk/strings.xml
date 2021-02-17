@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">bilim</string>
+    <string name="logo_name">Bilim</string>
+    <string name="app_slogan">Bіlіmdіge dúnıe jaryq</string>
+    <string name="sign_in_text">Kiru</string>
+    <string name="login_hint_text">Login</string>
+    <string name="password_text">Kupia soz</string>
+    <string name="enter_button_text">Kiru</string>
+    <string name="new_user_text">Men jana koldanushimin.</string>
+    <string name="registration_text">Tirkelu</string>
+</resources>
