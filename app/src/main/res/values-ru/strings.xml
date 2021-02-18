@@ -9,4 +9,8 @@
     <string name="enter_button_text">Продолжить</string>
     <string name="new_user_text">Я новый пользователь.</string>
     <string name="registration_text">Зарегистрироваться</string>
+    <string name="forgot_password_text">Забыли пароль?</string>
+    <string name="full_name_registration_text">Фамиля Имя Отчество</string>
+    <string name="age_registration_text">Возраст</string>
+    <string name="email_registration_text">Email</string>
 </resources>

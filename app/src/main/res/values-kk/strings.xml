@@ -9,4 +9,8 @@
     <string name="enter_button_text">Kiru</string>
     <string name="new_user_text">Men jana koldanushimin.</string>
     <string name="registration_text">Tirkelu</string>
+    <string name="forgot_password_text">Kupia sozdi umyttinizba?</string>
+    <string name="full_name_registration_text">Tolyk aty-joniniz</string>
+    <string name="age_registration_text">Jasiniz</string>
+    <string name="email_registration_text">Email</string>
 </resources>

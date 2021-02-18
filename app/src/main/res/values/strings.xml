@@ -8,4 +8,8 @@
     <string name="enter_button_text">Enter</string>
     <string name="new_user_text">I am new user.</string>
     <string name="registration_text">Registration</string>
+    <string name="forgot_password_text">Forgot password?</string>
+    <string name="full_name_registration_text">Full Name</string>
+    <string name="age_registration_text">Age</string>
+    <string name="email_registration_text">Email</string>
 </resources>
