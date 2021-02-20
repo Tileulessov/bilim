@@ -7,9 +7,20 @@
     <string name="password_text">Password</string>
     <string name="enter_button_text">Enter</string>
     <string name="new_user_text">I am new user.</string>
+    <string name="new_user_register_text">I am new user. Registration</string>
     <string name="registration_text">Registration</string>
     <string name="forgot_password_text">Forgot password?</string>
     <string name="full_name_registration_text">Full Name</string>
     <string name="age_registration_text">Age</string>
     <string name="email_registration_text">Email</string>
+    <string name="register_button_text">Register</string>
+    <string name="full_name_empty_error_text">Full name is required!</string>
+    <string name="age_empty_error_text">Age is required!</string>
+    <string name="email_empty_error_text">Email is required!</string>
+    <string name="invalid_email_error_text">Please provide valid email!</string>
+    <string name="password_empty_error_text">Password is required!</string>
+    <string name="password_length_error_text">Min password length should be 8 characters!</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="successfully_created_user_text">Successfully created user</string>
+    <string name="failed_to_create_user_text">Failed to create user</string>
 </resources>

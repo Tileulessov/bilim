@@ -8,9 +8,20 @@
     <string name="password_text">Kupia soz</string>
     <string name="enter_button_text">Kiru</string>
     <string name="new_user_text">Men jana koldanushimin.</string>
+    <string name="new_user_register_text">Men jana koldanushimin. Tirkelu</string>
     <string name="registration_text">Tirkelu</string>
     <string name="forgot_password_text">Kupia sozdi umyttinizba?</string>
     <string name="full_name_registration_text">Tolyk aty-joniniz</string>
     <string name="age_registration_text">Jasiniz</string>
     <string name="email_registration_text">Email</string>
+    <string name="register_button_text">Tirkelu</string>
+    <string name="full_name_empty_error_text">Aty-zhoninizdi zhaziniz!</string>
+    <string name="age_empty_error_text">Jasinizdi zhaziniz!</string>
+    <string name="email_empty_error_text">Email zhaziniz!</string>
+    <string name="invalid_email_error_text">Jaramdy email meken-zhain beriniz!</string>
+    <string name="password_empty_error_text">Kupia soz zhaziniz!</string>
+    <string name="password_length_error_text">Kupia soz kemdegende 8 simvoldan turu kazhet!</string>
+    <string name="already_have_an_account">Sizde parakshaniz barma?</string>
+    <string name="successfully_created_user_text">Successfully created user</string>
+    <string name="failed_to_create_user_text">Failed to create user</string>
 </resources>

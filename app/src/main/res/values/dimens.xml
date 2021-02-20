@@ -24,4 +24,7 @@
     <dimen name="margin_28">28dp</dimen>
     <dimen name="text_size_32">32sp</dimen>
     <dimen name="padding_8">8dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="margin_80">80dp</dimen>
 </resources>

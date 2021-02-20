@@ -11,35 +11,38 @@
         android:id="@+id/activity_registration_first_image_background_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="183dp"
-        android:layout_marginBottom="@dimen/margin_32"
+        android:layout_marginEnd="172dp"
         android:contentDescription="@string/logo_name"
         android:src="@drawable/bg_image_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.877"
         />
 
     <ImageView
         android:id="@+id/activity_registration_second_image_background_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
         android:contentDescription="@string/logo_name"
         android:src="@drawable/bg_image_1"
-        app:layout_constraintEnd_toEndOf="@+id/activity_registration_logo_text_view"
-        app:layout_constraintStart_toEndOf="@+id/activity_registration_logo_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/activity_registration_slogan_text_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.283"
         />
 
     <TextView
         android:id="@+id/activity_registration_logo_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_40"
         android:fontFamily="@font/rage"
         android:text="@string/logo_name"
         android:textColor="@color/white"
         android:textSize="@dimen/logo_text_size"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -47,21 +50,22 @@
         android:id="@+id/activity_registration_slogan_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_32"
+        android:layout_marginBottom="72dp"
         android:letterSpacing="0.5"
         android:text="@string/app_slogan"
         android:textColor="@color/white"
         android:textSize="@dimen/slogan_text_size"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_registration_logo_text_view"
-        app:layout_constraintEnd_toStartOf="@+id/activity_registration_second_image_background_image_view"
-        app:layout_constraintStart_toStartOf="@+id/activity_registration_second_image_background_image_view"
+        app:layout_constraintBottom_toTopOf="@+id/activity_registration_registration_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
     <TextView
         android:id="@+id/activity_registration_registration_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_28"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/roboto_medium"
         android:letterSpacing="0.1"
         android:text="@string/registration_text"
@@ -71,6 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_registration_logo_text_view"
+        app:layout_constraintBottom_toTopOf="@+id/activity_registration_full_name_edit_text"
         />
 
     <EditText
@@ -78,7 +83,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_horizontal_36"
-        android:layout_marginVertical="@dimen/margin_16"
         android:autofillHints="@string/full_name_registration_text"
         android:background="@drawable/bg_edit_text"
         android:hint="@string/full_name_registration_text"
@@ -91,7 +95,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_registration_registration_text_view"
-        app:layout_constraintVertical_bias="1.0"
         />
 
     <EditText
@@ -99,7 +102,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_horizontal_36"
-        android:layout_marginVertical="@dimen/margin_16"
         android:autofillHints="@string/age_registration_text"
         android:background="@drawable/bg_edit_text"
         android:hint="@string/age_registration_text"
@@ -111,6 +113,7 @@
         app:layout_constraintBottom_toTopOf="@+id/activity_registration_email_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_registration_full_name_edit_text"
         />
 
     <EditText
@@ -118,7 +121,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_horizontal_36"
-        android:layout_marginVertical="@dimen/margin_16"
         android:autofillHints="@string/email_registration_text"
         android:background="@drawable/bg_edit_text"
         android:hint="@string/email_registration_text"
@@ -127,10 +129,10 @@
         android:textColor="@color/black"
         android:textColorHint="@color/MDarkGrey"
         android:textSize="@dimen/text_size_16"
+        app:layout_constraintBottom_toTopOf="@+id/activity_registration_password_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/activity_registration_first_image_background_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/activity_registration_age_edit_text"
         />
 
     <EditText
@@ -138,7 +140,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_horizontal_36"
-        android:layout_marginVertical="@dimen/margin_16"
         android:autofillHints="@string/password_text"
         android:background="@drawable/bg_edit_text"
         android:hint="@string/password_text"
@@ -147,30 +148,46 @@
         android:textColor="@color/black"
         android:textColorHint="@color/MDarkGrey"
         android:textSize="@dimen/text_size_16"
-        app:layout_constraintBottom_toTopOf="@+id/activity_registration_registration_button"
+        app:layout_constraintBottom_toTopOf="@+id/activity_registration_register_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_registration_email_edit_text"
         app:layout_constraintVertical_bias="0.0"
         />
 
     <Button
-        android:id="@+id/activity_registration_registration_button"
-        android:layout_width="match_parent"
+        android:id="@+id/activity_registration_register_button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_horizontal_50"
+        android:layout_marginHorizontal="@dimen/margin_80"
         android:background="@drawable/bg_sign_in_button_state"
         android:enabled="false"
         android:fontFamily="@font/roboto_medium"
         android:padding="@dimen/padding_8"
-        android:text="@string/enter_button_text"
+        android:layout_marginBottom="@dimen/margin_20"
+        android:text="@string/register_button_text"
         android:textColor="@color/black"
         android:textColorHint="@color/MDarkGrey"
-        android:textSize="@dimen/text_size_26"
-        app:layout_constraintBottom_toBottomOf="@+id/activity_registration_first_image_background_image_view"
+        android:textSize="@dimen/text_size_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_registration_password_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
+
+    <TextView
+        android:id="@+id/activity_registration_user_have_account_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margin_16"
+        android:text="@string/already_have_an_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_registration_register_button"
+        />
+
     <ProgressBar
         android:id="@+id/activity_registration_progress_bar"
         android:layout_width="wrap_content"
