@@ -12,6 +12,7 @@ import com.example.bilim.R
 import com.example.bilim.course_page.CoursePageActivity
 import com.example.bilim.registration.RegistrationActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class SignInActivity : AppCompatActivity() {
 
@@ -97,8 +98,15 @@ class SignInActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    progressBar.isVisible = false
-                    startActivity(Intent(this, CoursePageActivity::class.java))
+                    val user: FirebaseUser = mAuth.currentUser!!
+                    if (user.isEmailVerified){
+                        progressBar.isVisible = false
+                        startActivity(Intent(this, CoursePageActivity::class.java))
+                    }else{
+                        user.sendEmailVerification()
+                        progressBar.isVisible = false
+                        Toast.makeText(this,getString(R.string.verify_email_text),Toast.LENGTH_LONG).show()
+                    }
                 } else {
                     progressBar.isVisible = false
                     Toast.makeText(

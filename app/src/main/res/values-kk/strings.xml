@@ -25,4 +25,5 @@
     <string name="successfully_created_user_text">Successfully created user</string>
     <string name="failed_to_create_user_text">Failed to create user</string>
     <string name="failed_to_login_text">Failed to login! Please check your credentials</string>
+    <string name="verify_email_text">Check your email to verify account!</string>
 </resources>
