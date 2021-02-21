@@ -8,5 +8,21 @@
     <string name="password_text">Пароль</string>
     <string name="enter_button_text">Продолжить</string>
     <string name="new_user_text">Я новый пользователь.</string>
-    <string name="registration_text">Зарегистрироваться</string>
+    <string name="new_user_register_text">Я новый пользователь. Зарегистрироваться</string>
+    <string name="registration_text">Регестрация</string>
+    <string name="forgot_password_text">Забыли пароль?</string>
+    <string name="full_name_registration_text">Фамиля Имя Отчество</string>
+    <string name="age_registration_text">Возраст</string>
+    <string name="email_registration_text">Email</string>
+    <string name="register_button_text">Зарегистрироваться</string>
+    <string name="full_name_empty_error_text">Напишите полное имя!</string>
+    <string name="age_empty_error_text">Напишите возраст!</string>
+    <string name="email_empty_error_text">Напишите Email!</string>
+    <string name="invalid_email_error_text">Пожалуйста, предоставьте действительный адрес электронной почты!</string>
+    <string name="password_empty_error_text">Напишите пароль!</string>
+    <string name="password_length_error_text">Минимальная длина пароля должна составлять 8 символов!</string>
+    <string name="already_have_an_account">Уже есть аккаунт?</string>
+    <string name="successfully_created_user_text">Successfully created user</string>
+    <string name="failed_to_create_user_text">Failed to create user</string>
+    <string name="failed_to_login_text">Failed to login! Please check your credentials</string>
 </resources>
