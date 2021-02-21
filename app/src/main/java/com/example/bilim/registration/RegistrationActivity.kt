@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.util.Patterns
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -13,6 +14,7 @@ import com.example.bilim.sign.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
+private const val DB_REFERENCE_PATH = "users"
 class RegistrationActivity : AppCompatActivity() {
     private lateinit var logoTextView: TextView
     private lateinit var mAuth: FirebaseAuth
@@ -27,7 +29,6 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
-        mAuth = FirebaseAuth.getInstance()
         initView()
         onClickListener()
         textWatcher = object : TextWatcher {
@@ -56,6 +57,7 @@ class RegistrationActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.activity_registration_password_edit_text)
         registerButton = findViewById(R.id.activity_registration_register_button)
         progressBar = findViewById(R.id.activity_registration_progress_bar)
+        mAuth = FirebaseAuth.getInstance()
     }
 
     private fun onClickListener() {
@@ -91,7 +93,11 @@ class RegistrationActivity : AppCompatActivity() {
             emailEditText.requestFocus()
             return
         }
-
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            emailEditText.error = getString(R.string.invalid_email_error_text)
+            emailEditText.requestFocus()
+            return
+        }
         if (password.isEmpty()) {
             passwordEditText.error = getString(R.string.password_empty_error_text)
             passwordEditText.requestFocus()
@@ -113,14 +119,13 @@ class RegistrationActivity : AppCompatActivity() {
                     else {
                         val user = User(email, password)
                         Log.d("RegisterActivity", "Successfully created user with uid: ${task.result?.user?.uid}")
-                        progressBar.isVisible = false
-                        Toast.makeText(this, getString(R.string.successfully_created_user_text), Toast.LENGTH_SHORT).show()
-                        FirebaseDatabase.getInstance().getReference("Users")
+                        FirebaseDatabase.getInstance().getReference(DB_REFERENCE_PATH)
                                 .child(FirebaseAuth.getInstance().currentUser!!.uid)
                                 .setValue(user).addOnCompleteListener {
                                     if (it.isSuccessful) {
                                         progressBar.isVisible = false
                                         Toast.makeText(this, getString(R.string.successfully_created_user_text), Toast.LENGTH_SHORT).show()
+                                        startActivity(Intent(this,SignInActivity::class.java))
                                     } else {
                                         progressBar.isVisible = false
                                         Toast.makeText(this, getString(R.string.failed_to_create_user_text), Toast.LENGTH_SHORT).show()

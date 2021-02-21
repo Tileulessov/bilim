@@ -167,7 +167,7 @@
         android:padding="@dimen/padding_8"
         android:layout_marginBottom="@dimen/margin_20"
         android:text="@string/register_button_text"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textColorHint="@color/MDarkGrey"
         android:textSize="@dimen/text_size_20"
         app:layout_constraintBottom_toBottomOf="parent"
