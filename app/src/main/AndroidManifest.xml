@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilimOnlineCourse"
         >
-        <activity android:name=".course_page.CoursePageActivity"></activity>
+        <activity android:name=".forgot_password.UserForgotPasswordActivity"></activity>
+        <activity android:name=".course_page.CoursePageActivity" />
         <activity
             android:name=".sign.SignInActivity"
             android:theme="@style/SplashScreen"

@@ -22,8 +22,12 @@
     <string name="password_empty_error_text">Kupia soz zhaziniz!</string>
     <string name="password_length_error_text">Kupia soz kemdegende 8 simvoldan turu kazhet!</string>
     <string name="already_have_an_account">Sizde parakshaniz barma?</string>
-    <string name="successfully_created_user_text">Successfully created user</string>
+    <string name="successfully_created_user_text">Пайдаланушыны сәтті құрылды</string>
     <string name="failed_to_create_user_text">Failed to create user</string>
     <string name="failed_to_login_text">Failed to login! Please check your credentials</string>
     <string name="verify_email_text">Check your email to verify account!</string>
+    <string name="user_forgot_password_text">Тіркелу кезінде көрсетілген электронды пошта мекенжайын көрсетіңіз</string>
+    <string name="reset_password">Құпия сөзді қалпына келтіру</string>
+    <string name="reset_password_error_text">Try again! Something wrong happened!</string>
+    <string name="reset_password_text">Check your email to reset your password!</string>
 </resources>

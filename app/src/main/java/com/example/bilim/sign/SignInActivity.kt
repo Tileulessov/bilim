@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.bilim.R
 import com.example.bilim.course_page.CoursePageActivity
+import com.example.bilim.forgot_password.UserForgotPasswordActivity
 import com.example.bilim.registration.RegistrationActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -44,6 +45,7 @@ class SignInActivity : AppCompatActivity() {
         }
         emailEditText.addTextChangedListener(textWatcher)
         passwordEditText.addTextChangedListener(textWatcher)
+        navigateToForgotPassword()
     }
 
     private fun initView() {
@@ -110,11 +112,17 @@ class SignInActivity : AppCompatActivity() {
                 } else {
                     progressBar.isVisible = false
                     Toast.makeText(
-                        this,
-                        getString(R.string.failed_to_login_text),
-                        Toast.LENGTH_SHORT
+                            this,
+                            getString(R.string.failed_to_login_text),
+                            Toast.LENGTH_SHORT
                     ).show()
                 }
             }
+    }
+
+    private fun navigateToForgotPassword() {
+        forgotPasswordTextView.setOnClickListener {
+            startActivity(Intent(this, UserForgotPasswordActivity::class.java))
+        }
     }
 }
