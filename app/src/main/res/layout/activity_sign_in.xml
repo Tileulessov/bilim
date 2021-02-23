@@ -10,8 +10,9 @@
     <ImageView
         android:id="@+id/activity_sign_in_background_image_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="@drawable/bg_sign_in_registration"
+        app:layout_constraintHeight_percent=".83"
         android:contentDescription="@string/logo_name"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/activity_sign_in_registration_text_view"
@@ -33,6 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.616"
         />
 
     <ImageView
