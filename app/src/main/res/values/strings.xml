@@ -3,7 +3,7 @@
     <string name="logo_name">Bilim</string>
     <string name="app_slogan">Bіlіmdіge dúnıe jaryq</string>
     <string name="sign_in_text">Sign in</string>
-    <string name="login_hint_text">Login</string>
+    <string name="login_hint_text">Email</string>
     <string name="password_text">Password</string>
     <string name="enter_button_text">Enter</string>
     <string name="new_user_text">I am new user.</string>
@@ -29,4 +29,6 @@
     <string name="reset_password">Reset Password</string>
     <string name="reset_password_error_text">Try again! Something wrong happened!</string>
     <string name="reset_password_text">Check your email to reset your password!</string>
+    <string name="courses_text">Courses</string>
+    <string name="search_text">What are you looking for?</string>
 </resources>

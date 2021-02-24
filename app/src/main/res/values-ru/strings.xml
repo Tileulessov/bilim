@@ -4,7 +4,7 @@
     <string name="logo_name">Bilim</string>
     <string name="app_slogan">Bіlіmdіge dúnıe jaryq</string>
     <string name="sign_in_text">Войти</string>
-    <string name="login_hint_text">Логин</string>
+    <string name="login_hint_text">Email</string>
     <string name="password_text">Пароль</string>
     <string name="enter_button_text">Продолжить</string>
     <string name="new_user_text">Я новый пользователь.</string>
@@ -28,6 +28,8 @@
     <string name="verify_email_text">Проверьте свою электронную почту, чтобы подтвердить учетную запись!</string>
     <string name="user_forgot_password_text">Укажите адрес электронной почты, указанный при регистрации</string>
     <string name="reset_password">Сброс пароля</string>
-    <string name="reset_password_error_text">Try again! Something wrong happened!</string>
-    <string name="reset_password_text">Check your email to reset your password!</string>
+    <string name="reset_password_error_text">Попробуй еще раз</string>
+    <string name="reset_password_text">Проверьте свою электронную почту, чтобы сбросить пароль!</string>
+    <string name="courses_text">Курсы</string>
+    <string name="search_text">Что вы ищете??</string>
 </resources>

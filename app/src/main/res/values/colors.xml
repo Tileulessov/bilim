@@ -13,4 +13,5 @@
     <color name="MDarkGrey">#341C1819</color>
     <color name="button_disable_color">#A8B1B8</color>
     <color name="button_enable_color">#00275E</color>
+    <color name="MWhiteBlue">#305F72</color>
 </resources>

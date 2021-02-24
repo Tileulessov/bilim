@@ -30,4 +30,5 @@
     <dimen name="text_size_24">24sp</dimen>
     <dimen name="margin_24">24dp</dimen>
     <dimen name="margin_10">10dp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
 </resources>
