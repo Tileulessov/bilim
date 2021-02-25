@@ -22,9 +22,6 @@ class CoursePageAdapter(options: FirestoreRecyclerOptions<CourseNameListModel>) 
         position: Int,
         model: CourseNameListModel
     ) {
-        holder.courseName.text = model.courseName
-        Glide.with(holder.courseIcon.context)
-                .load(model.iconUrl)
-                .into(holder.courseIcon)
+        holder.onBind(model)
     }
 }
