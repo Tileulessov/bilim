@@ -41,6 +41,7 @@ class CoursePageActivity : AppCompatActivity() {
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<CourseNameListModel> = FirestoreRecyclerOptions.Builder<CourseNameListModel>()
             .setQuery(query, CourseNameListModel::class.java)
             .build()
+
         coursePageAdapter = CoursePageAdapter(firestoreRecyclerOptions)
         coursePageRecyclerView.layoutManager = LinearLayoutManager(this)
         coursePageRecyclerView.adapter = coursePageAdapter

@@ -1,6 +1,10 @@
 package com.example.bilim.course_page.data.models
 
+import com.google.firebase.firestore.PropertyName
+
 data class CourseNameListModel(
-        var courseName: String?=null,
-        var courseIconUrl: String?=null
+        @PropertyName("courseName")
+        var courseName: String = "",
+        @PropertyName("iconUrl")
+        var iconUrl: String = ""
 )
