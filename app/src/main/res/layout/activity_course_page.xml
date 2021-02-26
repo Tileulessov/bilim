@@ -139,8 +139,6 @@
                 android:id="@+id/activity_course_page_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin_40"
                 android:clipToPadding="false"
                 android:overScrollMode="never"
                 android:paddingBottom="@dimen/padding_20"
