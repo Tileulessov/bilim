@@ -21,13 +21,15 @@
         app:layout_constraintVertical_bias="0"
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="216dp"
-            android:layout_marginBottom="204dp"
-            android:src="@drawable/bg_image_search"
+            android:layout_width="900dp"
+            android:layout_height="500dp"
+            android:alpha="0.7"
+            android:src="@drawable/bg_course_page_photo"
+            android:layout_marginEnd="@dimen/margin_16"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
 
         <TextView
@@ -53,17 +55,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_28"
-            android:layout_marginTop="@dimen/margin_32"
             android:background="@drawable/bg_search_edit_text"
             android:drawableEnd="@drawable/ic_search"
             android:hint="@string/search_text"
             android:padding="@dimen/padding_8"
             android:textColor="@color/black"
+            android:layout_marginTop="@dimen/margin_40"
             android:textColorHint="@color/MDarkGrey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_course_page_user_name_text_view"
+            app:layout_constraintBottom_toTopOf="@id/activity_course_page_user_course_linear"
             />
+
+        <LinearLayout
+            android:id="@+id/activity_course_page_user_course_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_16"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/activity_course_page_course_list_linear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_course_page_search_edit_text"
+            tools:ignore="NotSibling"
+            >
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/activity_course_page_user_course_recycler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/user_courses_item"
+                    />
+            </HorizontalScrollView>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
