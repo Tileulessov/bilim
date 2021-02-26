@@ -13,9 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BilimOnlineCourse">
-        <activity android:name=".courses.presentation.KotlinLessonsActivity"></activity>
-        <activity android:name=".forgot_password.UserForgotPasswordActivity" />
-        <activity android:name=".course_page.presentation.CoursePageActivity" />
         <activity
             android:name=".sign.SignInActivity"
             android:theme="@style/SplashScreen">
@@ -26,6 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".registration.RegistrationActivity" />
+        <activity android:name=".forgot_password.UserForgotPasswordActivity" />
+        <activity android:name=".course_page.presentation.CoursePageActivity" />
     </application>
 
 </manifest>
