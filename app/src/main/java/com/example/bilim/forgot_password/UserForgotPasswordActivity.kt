@@ -40,7 +40,7 @@ class UserForgotPasswordActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        toolbar = findViewById(R.id.activity_user_forgot_password_toolbar)
+        toolbar = findViewById(R.id.activity_course_content_toolbar)
         toolbar.setOnClickListener {
             finish()
         }

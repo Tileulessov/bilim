@@ -4,19 +4,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/margin_28"
     android:layout_marginVertical="@dimen/margin_8"
-    android:background="@drawable/bg_course_card"
+    android:background="@color/white"
     >
 
-    <ImageView
+    <TextView
         android:id="@+id/course_list_item_number_text_view"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="@dimen/margin_32"
-        android:src="@drawable/ic_kotlin"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/bg_course_number"
+        android:text="1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/course_list_item_title_text_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -27,13 +30,23 @@
         android:layout_height="wrap_content"
         android:text="Kotlin"
         android:textAlignment="center"
-        android:textColor="#305F72"
+        android:textColor="@color/MGreyBlue"
         android:textSize="@dimen/text_size_32"
+        android:layout_marginEnd="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintEnd_toStartOf="@id/course_list_item_play_image_view"
         app:layout_constraintStart_toEndOf="@+id/course_list_item_number_text_view"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507"
         />
+
+    <ImageView
+        android:id="@+id/course_list_item_play_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/play_button_orange"
+        app:layout_constraintStart_toEndOf="@id/course_list_item_title_text_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

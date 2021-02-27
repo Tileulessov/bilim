@@ -36,7 +36,7 @@ class CoursePageActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        coursePageRecyclerView = findViewById(R.id.activity_course_page_recycler_view)
+        coursePageRecyclerView = findViewById(R.id.activity_course_content_recycler_view)
         val query:Query = collectionReference
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<CourseNameListModel> = FirestoreRecyclerOptions.Builder<CourseNameListModel>()
             .setQuery(query, CourseNameListModel::class.java)

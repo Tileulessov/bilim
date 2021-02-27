@@ -9,7 +9,7 @@
     android:background="@color/white"
     >
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/activity_course_page_details_constraint"
+        android:id="@+id/activity_course_content_details_constraint"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/orange_bg"
@@ -20,16 +20,34 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0"
         >
+        <Toolbar
+            android:id="@+id/activity_event_details_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:targetApi="lollipop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/activity_event_details_favorite_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:src="@drawable/user_3" />
+        </Toolbar>
         <ImageView
-            android:layout_width="900dp"
-            android:layout_height="500dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:alpha="0.7"
             android:src="@drawable/bg_course_page_photo"
-            android:layout_marginEnd="@dimen/margin_16"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             />
 
         <TextView
@@ -37,36 +55,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginTop="100dp"
-            android:ems="6"
+            android:layout_marginTop="124dp"
+            android:background="@drawable/bg_user_name"
             android:fontFamily="@font/lato"
-            android:minLines="2"
             android:text="Qosh keldiniz, Samat!"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
             android:textSize="@dimen/text_size_32"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintHorizontal_bias="0.144"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/activity_course_page_search_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_28"
+            android:layout_marginTop="@dimen/margin_40"
             android:background="@drawable/bg_search_edit_text"
             android:drawableEnd="@drawable/ic_search"
             android:hint="@string/search_text"
             android:padding="@dimen/padding_8"
             android:textColor="@color/black"
-            android:layout_marginTop="@dimen/margin_40"
             android:textColorHint="@color/MDarkGrey"
+            app:layout_constraintBottom_toTopOf="@id/activity_course_page_user_course_linear"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_course_page_user_name_text_view"
-            app:layout_constraintBottom_toTopOf="@id/activity_course_page_user_course_linear"
-            />
+            app:layout_constraintTop_toBottomOf="@id/activity_course_page_user_name_text_view" />
 
         <LinearLayout
             android:id="@+id/activity_course_page_user_course_linear"
@@ -74,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_16"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@id/activity_course_page_course_list_linear"
+            app:layout_constraintBottom_toTopOf="@id/activity_course_content_course_list_linear"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_course_page_search_edit_text"
@@ -85,8 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:overScrollMode="never"
-                android:scrollbars="none"
-                >
+                android:scrollbars="none">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/activity_course_page_user_course_recycler"
@@ -96,15 +112,14 @@
                     android:orientation="horizontal"
                     android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/user_courses_item"
-                    />
+                    tools:listitem="@layout/user_courses_item" />
             </HorizontalScrollView>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/activity_course_page_course_list_linear"
+        android:id="@+id/activity_course_content_course_list_linear"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/bg_course_list"
@@ -136,7 +151,7 @@
             >
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/activity_course_page_recycler_view"
+                android:id="@+id/activity_course_content_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
