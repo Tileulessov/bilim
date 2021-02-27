@@ -6,5 +6,7 @@ data class CourseNameListModel(
         @PropertyName("courseName")
         var courseName: String = "",
         @PropertyName("iconUrl")
-        var iconUrl: String = ""
+        var iconUrl: String = "",
+        @PropertyName("bgColor")
+        var bgColor: String = ""
 )

@@ -1,8 +1,7 @@
-package com.example.bilim.course_page.view
+package com.example.bilim.course_page.presentation.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import com.example.bilim.R
 import com.example.bilim.course_page.data.models.CourseNameListModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter

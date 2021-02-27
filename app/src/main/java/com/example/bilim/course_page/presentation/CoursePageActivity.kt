@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bilim.R
 import com.example.bilim.course_page.data.models.CourseNameListModel
-import com.example.bilim.course_page.view.CoursePageAdapter
+import com.example.bilim.course_page.presentation.view.CoursePageAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
