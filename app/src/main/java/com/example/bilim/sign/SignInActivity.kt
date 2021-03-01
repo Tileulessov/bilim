@@ -47,12 +47,13 @@ class SignInActivity : AppCompatActivity() {
         passwordEditText.addTextChangedListener(textWatcher)
         navigateToForgotPassword()
     }
+
     @Override
     override fun onStart() {
         super.onStart()
        val firebaseUser:FirebaseUser? = mAuth.currentUser
         if(firebaseUser != null){
-            startActivity(Intent(this, CoursePageActivity::class.java))
+          //  startActivity(Intent(this, CoursePageActivity::class.java))
         }
     }
 

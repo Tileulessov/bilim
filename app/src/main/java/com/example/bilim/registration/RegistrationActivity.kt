@@ -25,6 +25,7 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var registerButton: Button
     private lateinit var textWatcher: TextWatcher
     private lateinit var progressBar: ProgressBar
+    private lateinit var userHaveAcc:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +58,7 @@ class RegistrationActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.activity_registration_password_edit_text)
         registerButton = findViewById(R.id.activity_registration_register_button)
         progressBar = findViewById(R.id.activity_registration_progress_bar)
+        userHaveAcc = findViewById(R.id.activity_registration_user_have_account_text_view)
         mAuth = FirebaseAuth.getInstance()
     }
 
@@ -68,6 +70,10 @@ class RegistrationActivity : AppCompatActivity() {
 
         registerButton.setOnClickListener {
             registerNewUser()
+        }
+        userHaveAcc.setOnClickListener {
+            val signInIntent = Intent(this, SignInActivity::class.java)
+            startActivity(signInIntent)
         }
     }
 
@@ -131,6 +137,8 @@ class RegistrationActivity : AppCompatActivity() {
                                         Toast.makeText(this, getString(R.string.failed_to_create_user_text), Toast.LENGTH_SHORT).show()
                                     }
                                 }
+                        FirebaseAuth.getInstance().signOut()
+                        finish()
                     }
                 }
                 .addOnFailureListener {
