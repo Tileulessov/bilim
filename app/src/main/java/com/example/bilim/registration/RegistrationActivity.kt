@@ -12,6 +12,7 @@ import androidx.core.view.isVisible
 import com.example.bilim.R
 import com.example.bilim.sign.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
 
 private const val DB_REFERENCE_PATH = "users"
@@ -123,7 +124,9 @@ class RegistrationActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (!task.isSuccessful) return@addOnCompleteListener
                     else {
+                        val fUser: FirebaseUser = mAuth.currentUser!!
                         val user = User(email, password)
+                        fUser.sendEmailVerification()
                         Log.d("RegisterActivity", "Successfully created user with uid: ${task.result?.user?.uid}")
                         FirebaseDatabase.getInstance().getReference(DB_REFERENCE_PATH)
                                 .child(FirebaseAuth.getInstance().currentUser!!.uid)
@@ -132,9 +135,6 @@ class RegistrationActivity : AppCompatActivity() {
                                         progressBar.isVisible = false
                                         Toast.makeText(this, getString(R.string.successfully_created_user_text), Toast.LENGTH_SHORT).show()
                                         startActivity(Intent(this,SignInActivity::class.java))
-                                    } else {
-                                        progressBar.isVisible = false
-                                        Toast.makeText(this, getString(R.string.failed_to_create_user_text), Toast.LENGTH_SHORT).show()
                                     }
                                 }
                         FirebaseAuth.getInstance().signOut()
