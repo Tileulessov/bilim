@@ -18,7 +18,6 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
-
 class CoursePageActivity : AppCompatActivity(), CourseClickListener {
     private lateinit var coursePageRecyclerView: RecyclerView
     private lateinit var coursePageAdapter: CoursePageAdapter
@@ -53,7 +52,11 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
         coursePageRecyclerView.adapter = coursePageAdapter
     }
 
-    override fun onCourseClick(documentSnapshot: DocumentSnapshot, position: Int, model: CourseNameListModel) {
+    override fun onCourseClick(
+            documentSnapshot: DocumentSnapshot,
+            position: Int,
+            model: CourseNameListModel
+    ) {
         val id = documentSnapshot.id
         Toast.makeText(this, "Position: $position ID: $id", Toast.LENGTH_SHORT).show()
         val intent: Intent = Intent(this, CourseContentActivity::class.java)
