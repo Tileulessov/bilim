@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilimOnlineCourse"
         >
-        <activity android:name=".course_content.CourseContentActivity"></activity>
+        <activity android:name=".course_content.presentation.CourseContentActivity"></activity>
         <activity
             android:name=".sign.SignInActivity"
             android:theme="@style/SplashScreen"

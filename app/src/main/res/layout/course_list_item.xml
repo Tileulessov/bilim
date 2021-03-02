@@ -39,12 +39,28 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+    <TextView
+        android:id="@+id/course_list_item_type_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:text="Lection"
+        android:textAlignment="center"
+        android:textColor="@color/MGreyBlue"
+        android:textSize="@dimen/text_size_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/course_list_item_play_image_view"
+        app:layout_constraintStart_toEndOf="@+id/course_list_item_title_text_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666"
+        />
+
     <ImageView
         android:id="@+id/course_list_item_play_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/play_button_orange"
-        app:layout_constraintStart_toEndOf="@id/course_list_item_title_text_view"
+        app:layout_constraintStart_toEndOf="@id/course_list_item_type_text_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
