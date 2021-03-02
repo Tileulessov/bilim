@@ -22,7 +22,7 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
     private lateinit var coursePageRecyclerView: RecyclerView
     private lateinit var coursePageAdapter: CoursePageAdapter
     private val mDataBase: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private val collectionReference:CollectionReference = mDataBase.collection("course")
+    private val collectionReference: CollectionReference = mDataBase.collection("course")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +42,10 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
 
     private fun initViews() {
         coursePageRecyclerView = findViewById(R.id.activity_course_content_recycler_view)
-        val query:Query = collectionReference
+        val query: Query = collectionReference
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<CourseNameListModel> = FirestoreRecyclerOptions.Builder<CourseNameListModel>()
-            .setQuery(query, CourseNameListModel::class.java)
-            .build()
+                .setQuery(query, CourseNameListModel::class.java)
+                .build()
 
         coursePageAdapter = CoursePageAdapter(firestoreRecyclerOptions, this)
         coursePageRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -55,8 +55,8 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
     override fun onCourseClick(documentSnapshot: DocumentSnapshot, position: Int, model: CourseNameListModel) {
         val id = documentSnapshot.id
         Toast.makeText(this, "Position: $position ID: $id", Toast.LENGTH_SHORT).show()
-        val intent:Intent = Intent(this, CourseContentActivity::class.java)
-        intent.putExtra("key",model.courseName)
+        val intent: Intent = Intent(this, CourseContentActivity::class.java)
+        intent.putExtra("key", model.courseName)
         startActivity(intent)
     }
 }

@@ -26,7 +26,7 @@ class CoursePageViewHolder(
         itemView.setOnClickListener {
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
-                courseClickListener.onCourseClick(snapshot, position,model)
+                courseClickListener.onCourseClick(snapshot, position, model)
             }
         }
     }

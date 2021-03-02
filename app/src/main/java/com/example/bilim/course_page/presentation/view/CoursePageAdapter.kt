@@ -1,11 +1,9 @@
 package com.example.bilim.course_page.presentation.view
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.bilim.R
 import com.example.bilim.common.listeners.CourseClickListener
-import com.example.bilim.course_content.presentation.CourseContentActivity
 import com.example.bilim.course_page.data.models.CourseNameListModel
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
