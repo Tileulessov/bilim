@@ -52,7 +52,7 @@
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginTop="@dimen/margin_70"
-            android:src="@drawable/ic_kotlin"
+            android:src="@drawable/ic_search"
             app:layout_constraintBottom_toTopOf="@id/activity_course_content_course_name_text_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

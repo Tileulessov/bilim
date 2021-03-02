@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bilim.R
+import com.example.bilim.common.Constants
 import com.example.bilim.common.listeners.CourseClickListener
 import com.example.bilim.course_content.presentation.CourseContentActivity
 import com.example.bilim.course_page.data.models.CourseNameListModel
@@ -56,7 +57,8 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
         val id = documentSnapshot.id
         Toast.makeText(this, "Position: $position ID: $id", Toast.LENGTH_SHORT).show()
         val intent: Intent = Intent(this, CourseContentActivity::class.java)
-        intent.putExtra("key", model.courseName)
+        intent.putExtra(Constants.COURSE_NAME, model.courseName)
+        intent.putExtra(Constants.COURSE_ICON, model.iconUrl)
         startActivity(intent)
     }
 }
