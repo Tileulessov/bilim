@@ -1,5 +1,6 @@
 package com.example.bilim.course_content.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,6 +14,7 @@ import com.example.bilim.common.Constants
 import com.example.bilim.common.listeners.ContentClickListener
 import com.example.bilim.course_content.data.model.CourseContentModel
 import com.example.bilim.course_content.presentation.view.ContentAdapter
+import com.example.bilim.lesson.presentation.LessonActivity
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
@@ -83,5 +85,9 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
     ) {
         val id = documentSnapshot.id
         Toast.makeText(this, "Position: $position ID: $id", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, LessonActivity::class.java)
+        intent.putExtra(Constants.LESSON_TITLE, model.courseTitle)
+        intent.putExtra(Constants.COURSE_CONTENT_TEXT,model.content)
+        startActivity(intent)
     }
 }

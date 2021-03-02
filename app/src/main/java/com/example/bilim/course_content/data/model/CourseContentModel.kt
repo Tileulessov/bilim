@@ -10,5 +10,7 @@ data class CourseContentModel(
         @PropertyName("courseType")
         val courseType: String? = "",
         @PropertyName("content")
-        val content: String? = ""
+        val content: String? = "",
+        @PropertyName("pdfUrl")
+        val pdfUrl: String? = ""
 )
