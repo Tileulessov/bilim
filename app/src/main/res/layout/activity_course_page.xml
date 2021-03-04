@@ -38,6 +38,7 @@
                 android:src="@drawable/user_3" />
         </Toolbar>
         <ImageView
+            android:id="@+id/activity_course_page_user_profile_image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alpha="0.7"
@@ -58,7 +59,7 @@
             android:layout_marginTop="124dp"
             android:background="@drawable/bg_user_name"
             android:fontFamily="@font/lato"
-            android:text="Qosh keldiniz, Samat!"
+            android:text="Qosh keldiniz, "
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/text_size_32"

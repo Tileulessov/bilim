@@ -1,6 +1,8 @@
 package com.example.bilim.registration
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +12,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.bilim.R
+import com.example.bilim.common.Constants
 import com.example.bilim.sign.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -115,6 +118,7 @@ class RegistrationActivity : AppCompatActivity() {
             passwordEditText.requestFocus()
             return
         }
+        saveUserNameSharedPref(fullName)
         performUserRegister(email, password)
     }
 
@@ -146,5 +150,12 @@ class RegistrationActivity : AppCompatActivity() {
                     Log.d("RegisterActivity", "Failed to create user: ${it.message}")
                     Toast.makeText(this, getString(R.string.failed_to_create_user_text), Toast.LENGTH_SHORT).show()
                 }
+    }
+
+    private fun saveUserNameSharedPref(userName:String){
+        val sharedPref:SharedPreferences = getSharedPreferences(Constants.APPLICATION_SHARED_PREF,Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString(Constants.USER_NAME,userName)
+        editor.apply()
     }
 }

@@ -33,4 +33,5 @@
     <string name="courses_text">Курсы</string>
     <string name="search_text">Что вы ищете??</string>
     <string name="search_error_text">Пожалуйста, напишите, что вы ищете</string>
+    <string name="user_name">Здравствуйте %1s</string>
 </resources>

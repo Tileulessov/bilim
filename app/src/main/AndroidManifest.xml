@@ -3,6 +3,7 @@
     package="com.example.bilim">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -12,8 +13,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BilimOnlineCourse">
-        <activity android:name=".lesson.presentation.LessonActivity"></activity>
+        android:theme="@style/Theme.BilimOnlineCourse"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".user_profile.presentation.UserProfile"></activity>
+        <activity android:name=".lesson.presentation.LessonActivity" />
         <activity android:name=".course_content.presentation.CourseContentActivity" />
         <activity
             android:name=".sign.SignInActivity"

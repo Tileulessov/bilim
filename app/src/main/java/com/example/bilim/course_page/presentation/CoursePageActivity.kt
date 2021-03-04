@@ -1,10 +1,14 @@
 package com.example.bilim.course_page.presentation
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +20,7 @@ import com.example.bilim.common.listeners.CourseClickListener
 import com.example.bilim.course_content.presentation.CourseContentActivity
 import com.example.bilim.course_page.data.models.CourseNameListModel
 import com.example.bilim.course_page.presentation.view.CoursePageAdapter
+import com.example.bilim.user_profile.presentation.UserProfile
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
@@ -25,10 +30,12 @@ import com.google.firebase.firestore.Query
 class CoursePageActivity : AppCompatActivity(), CourseClickListener {
     private lateinit var searchEditText: EditText
     private lateinit var userNameTextView: TextView
+    private lateinit var userProfileImageView: ImageView
     private lateinit var coursePageRecyclerView: RecyclerView
     private lateinit var coursePageAdapter: CoursePageAdapter
     private val mDataBase: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val collectionReference: CollectionReference = mDataBase.collection("course")
+    private lateinit var userName:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +68,8 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
             }
 
         })
+        navigateToUserProfile()
+
     }
 
     override fun onStart() {
@@ -86,14 +95,23 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
         startActivity(intent)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initViews() {
         coursePageRecyclerView = findViewById(R.id.activity_course_content_recycler_view)
         searchEditText = findViewById(R.id.activity_course_page_search_edit_text)
         userNameTextView = findViewById(R.id.activity_course_page_user_name_text_view)
+        userProfileImageView = findViewById(R.id.activity_course_page_user_profile_image_view)
+        getUserName()
+    }
+
+    private fun getUserName(){
+        userName = getSavedUserName()!!
+        userNameTextView.text = userName
     }
 
     private fun getCourseList(text: String) {
-        val query: Query = collectionReference.orderBy("courseName").startAt(text).endAt(text+"\uf8ff")
+        val query: Query =
+            collectionReference.orderBy("courseName").startAt(text).endAt(text + "\uf8ff")
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<CourseNameListModel> =
             FirestoreRecyclerOptions.Builder<CourseNameListModel>()
                 .setQuery(query, CourseNameListModel::class.java)
@@ -102,5 +120,16 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
         coursePageAdapter = CoursePageAdapter(firestoreRecyclerOptions, this)
         coursePageRecyclerView.layoutManager = LinearLayoutManager(this)
         coursePageRecyclerView.adapter = coursePageAdapter
+    }
+
+    private fun navigateToUserProfile() {
+        userProfileImageView.setOnClickListener {
+            startActivity(Intent(this, UserProfile::class.java))
+        }
+    }
+
+    private fun getSavedUserName(): String? {
+        val sharedPref: SharedPreferences = getSharedPreferences(Constants.APPLICATION_SHARED_PREF, Context.MODE_PRIVATE)
+        return sharedPref.getString(Constants.USER_NAME,"Welcome to Bilim")
     }
 }

@@ -1,5 +1,6 @@
 package com.example.bilim.course_content.presentation
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
@@ -20,6 +21,8 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.listener.multi.BaseMultiplePermissionsListener
 
 class CourseContentActivity : AppCompatActivity(), ContentClickListener {
 
@@ -76,6 +79,9 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         contentAdapter = ContentAdapter(firestoreRecyclerOptions, this)
         courseTitleRecycler.layoutManager = LinearLayoutManager(this)
         courseTitleRecycler.adapter = contentAdapter
+        Dexter.withContext(this)
+            .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            .withListener(object : BaseMultiplePermissionsListener(){})
     }
 
     override fun onContentClick(
