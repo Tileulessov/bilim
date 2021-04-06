@@ -72,7 +72,7 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         collectionReference = mDataBase.collection("course")
                 .document(name!!)
                 .collection(name)
-        val query: Query = collectionReference
+        val query: Query = collectionReference.orderBy("courseId", Query.Direction.ASCENDING)
         val firestoreRecyclerOptions: FirestoreRecyclerOptions<CourseContentModel> = FirestoreRecyclerOptions.Builder<CourseContentModel>()
                 .setQuery(query, CourseContentModel::class.java)
                 .build()

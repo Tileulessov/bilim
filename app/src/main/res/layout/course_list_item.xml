@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/margin_28"
     android:layout_marginVertical="@dimen/margin_8"
+    android:orientation="horizontal"
     android:background="@color/white"
     >
 
@@ -17,26 +18,22 @@
         android:background="@drawable/bg_course_number"
         android:text="1"
         android:textAlignment="center"
+        android:layout_gravity="center"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/course_list_item_title_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/margin_8"
         />
 
     <TextView
         android:id="@+id/course_list_item_title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
         android:text="Kotlin"
         android:textAlignment="center"
         android:textColor="@color/MGreyBlue"
+        android:layout_marginEnd="@dimen/margin_8"
+        android:layout_weight="1"
         android:textSize="@dimen/text_size_16"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/course_list_item_play_image_view"
-        app:layout_constraintStart_toEndOf="@+id/course_list_item_number_text_view"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
         />
 
     <TextView
@@ -44,27 +41,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_8"
-        android:layout_marginEnd="80dp"
         android:text="Lection"
         android:textAlignment="center"
+        android:layout_gravity="center"
         android:textColor="@color/MGreyBlue"
+        android:layout_marginEnd="@dimen/margin_8"
         android:textSize="@dimen/text_size_12"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/course_list_item_play_image_view"
-        app:layout_constraintStart_toEndOf="@+id/course_list_item_title_text_view"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705"
         />
 
     <ImageView
         android:id="@+id/course_list_item_play_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:src="@drawable/play_button_orange"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/course_list_item_type_text_view"
-        app:layout_constraintTop_toTopOf="parent"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -50,6 +50,7 @@ class LessonActivity : AppCompatActivity() {
         val courseName = intent.getStringExtra(Constants.COURSE_NAME)
         titleTextView.text = title
         val pdfUrl = intent.getStringExtra(Constants.COURSE_CONTENT_PDF_URL)
+        loadProgressBar()
         getPdfFromFirebase(pdfUrl, courseName)
     }
 
