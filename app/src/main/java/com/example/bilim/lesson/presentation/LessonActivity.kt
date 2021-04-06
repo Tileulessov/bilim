@@ -8,8 +8,8 @@ import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bilim.R
@@ -20,11 +20,11 @@ import java.net.URLEncoder
 
 class LessonActivity : AppCompatActivity() {
 
-    private lateinit var titleTextView: TextView
-    private lateinit var contentPdf: WebView
+    private lateinit var contentPdfWebView: WebView
     private val mDataBase: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var collectionReference: CollectionReference
     private lateinit var progressBar: ProgressBar
+    private lateinit var lessonTitleToolbar: Toolbar
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,11 +36,12 @@ class LessonActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled")
     @RequiresApi(Build.VERSION_CODES.O)
     private fun initViews() {
-        titleTextView = findViewById(R.id.activity_lesson_title_text_view)
-        contentPdf = findViewById(R.id.activity_lesson_webview)
-        contentPdf.settings.javaScriptEnabled = true
-        contentPdf.settings.builtInZoomControls = true
+        contentPdfWebView = findViewById(R.id.activity_lesson_webview)
+        contentPdfWebView.settings.javaScriptEnabled = true
+        contentPdfWebView.settings.builtInZoomControls = true
         progressBar = findViewById(R.id.activity_lesson_progress_bar)
+        lessonTitleToolbar = findViewById(R.id.activity_lesson_toolbar)
+        navigateBack()
         getLessonContent()
     }
 
@@ -48,9 +49,8 @@ class LessonActivity : AppCompatActivity() {
     private fun getLessonContent() {
         val title = intent.getStringExtra(Constants.LESSON_TITLE)
         val courseName = intent.getStringExtra(Constants.COURSE_NAME)
-        titleTextView.text = title
+        lessonTitleToolbar.title = title
         val pdfUrl = intent.getStringExtra(Constants.COURSE_CONTENT_PDF_URL)
-        loadProgressBar()
         getPdfFromFirebase(pdfUrl, courseName)
     }
 
@@ -59,8 +59,7 @@ class LessonActivity : AppCompatActivity() {
         collectionReference = mDataBase.collection("course")
                 .document(courseName!!)
                 .collection(courseName)
-        loadProgressBar()
-        contentPdf.webViewClient = object : WebViewClient() {
+        contentPdfWebView.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 loadProgressBar()
@@ -80,7 +79,7 @@ class LessonActivity : AppCompatActivity() {
             Toast.makeText(this, getString(R.string.error_pdf_url), Toast.LENGTH_LONG).show()
         }
 
-        contentPdf.loadUrl(Constants.GOOGLE_PDF_READ + url)
+        contentPdfWebView.loadUrl(Constants.GOOGLE_PDF_READ + url)
     }
 
     private fun loadProgressBar() {
@@ -89,5 +88,11 @@ class LessonActivity : AppCompatActivity() {
 
     private fun goneProgressBar() {
         progressBar.visibility = View.GONE
+    }
+
+    private fun navigateBack(){
+        lessonTitleToolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }
