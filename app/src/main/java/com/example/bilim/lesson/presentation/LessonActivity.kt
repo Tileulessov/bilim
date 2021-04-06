@@ -59,6 +59,7 @@ class LessonActivity : AppCompatActivity() {
         collectionReference = mDataBase.collection("course")
                 .document(courseName!!)
                 .collection(courseName)
+        loadProgressBar()
         contentPdfWebView.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
