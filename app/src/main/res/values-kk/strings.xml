@@ -34,4 +34,5 @@
     <string name="search_text">Сіз не үйренгіңіз келеді?</string>
     <string name="search_error_text">Курс атын жазыңыз</string>
     <string name="user_name">Қош келдіңіз %1s</string>
+    <string name="error_pdf_url">Problem with internet connection</string>
 </resources>

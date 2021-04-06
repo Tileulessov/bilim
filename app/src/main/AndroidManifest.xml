@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilimOnlineCourse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".user_profile.presentation.UserProfile"></activity>
+        <activity android:name=".user_profile.presentation.UserProfile" />
         <activity android:name=".lesson.presentation.LessonActivity" />
         <activity android:name=".course_content.presentation.CourseContentActivity" />
         <activity

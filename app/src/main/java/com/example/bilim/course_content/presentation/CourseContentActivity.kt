@@ -93,7 +93,9 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         Toast.makeText(this, "Position: $position ID: $id", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, LessonActivity::class.java)
         intent.putExtra(Constants.LESSON_TITLE, model.courseTitle)
-        intent.putExtra(Constants.COURSE_CONTENT_TEXT,model.content)
+        intent.putExtra(Constants.COURSE_CONTENT_TEXT, model.content)
+        intent.putExtra(Constants.COURSE_CONTENT_PDF_URL, model.pdfUrl)
+        intent.putExtra(Constants.COURSE_NAME, model.courseName)
         startActivity(intent)
     }
 }
