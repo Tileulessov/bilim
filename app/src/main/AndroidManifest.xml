@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bilim">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.bilim"
+    >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,13 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BilimOnlineCourse"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        >
+        <activity android:name=".lesson.videoLesson.presentation.VideoLessonActivity"></activity>
         <activity android:name=".user_profile.presentation.UserProfile" />
         <activity android:name=".lesson.presentation.LessonActivity" />
         <activity android:name=".course_content.presentation.CourseContentActivity" />
         <activity
             android:name=".sign.SignInActivity"
-            android:theme="@style/SplashScreen">
+            android:theme="@style/SplashScreen"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

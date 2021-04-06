@@ -16,6 +16,7 @@ import com.example.bilim.common.listeners.ContentClickListener
 import com.example.bilim.course_content.data.model.CourseContentModel
 import com.example.bilim.course_content.presentation.view.ContentAdapter
 import com.example.bilim.lesson.presentation.LessonActivity
+import com.example.bilim.lesson.videoLesson.presentation.VideoLessonActivity
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
@@ -90,12 +91,23 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
             model: CourseContentModel
     ) {
         val id = documentSnapshot.id
+        val content = model.courseType
+        if(content == "lecture"){
+            val intent = Intent(this, LessonActivity::class.java)
+            intent.putExtra(Constants.LESSON_TITLE, model.courseTitle)
+            intent.putExtra(Constants.COURSE_CONTENT_TEXT, model.content)
+            intent.putExtra(Constants.COURSE_CONTENT_PDF_URL, model.pdfUrl)
+            intent.putExtra(Constants.COURSE_NAME, model.courseName)
+            startActivity(intent)
+        }
+        else if (content == "video"){
+            val intent = Intent(this, VideoLessonActivity::class.java)
+            startActivity(intent)
+        }
+        else if(content == "test"){
+
+        }
         Toast.makeText(this, "Position: $position ID: $id", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, LessonActivity::class.java)
-        intent.putExtra(Constants.LESSON_TITLE, model.courseTitle)
-        intent.putExtra(Constants.COURSE_CONTENT_TEXT, model.content)
-        intent.putExtra(Constants.COURSE_CONTENT_PDF_URL, model.pdfUrl)
-        intent.putExtra(Constants.COURSE_NAME, model.courseName)
-        startActivity(intent)
+
     }
 }
