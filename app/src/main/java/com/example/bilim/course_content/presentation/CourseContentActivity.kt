@@ -102,12 +102,13 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         }
         else if (content == "video"){
             val intent = Intent(this, VideoLessonActivity::class.java)
+            intent.putExtra(Constants.LESSON_TITLE, model.courseTitle)
+            intent.putExtra(Constants.COURSE_CONTENT_PDF_URL,model.pdfUrl)
             startActivity(intent)
         }
         else if(content == "test"){
 
         }
         Toast.makeText(this, "Position: $position ID: $id", Toast.LENGTH_SHORT).show()
-
     }
 }
