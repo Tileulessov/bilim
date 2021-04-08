@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,6 +34,7 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
     private val mDataBase: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var collectionReference: CollectionReference
     private lateinit var contentAdapter: ContentAdapter
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +58,15 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         courseIcon = findViewById(R.id.activity_course_content_course_icon_image_view)
         courseName = findViewById(R.id.activity_course_content_course_name_text_view)
         courseTitleRecycler = findViewById(R.id.activity_course_content_recycler_view)
+        toolbar = findViewById(R.id.activity_course_content_toolbar)
         getCourseDetails()
+        navigateBack()
+    }
+
+    private fun navigateBack() {
+            toolbar.setNavigationOnClickListener {
+                finish()
+            }
     }
 
     private fun getCourseDetails() {
