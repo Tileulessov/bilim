@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.bilim.R
 import com.example.bilim.common.Constants
+import com.example.bilim.models.UserModel
 import com.example.bilim.sign.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -129,7 +130,7 @@ class RegistrationActivity : AppCompatActivity() {
                     if (!task.isSuccessful) return@addOnCompleteListener
                     else {
                         val fUser: FirebaseUser = mAuth.currentUser!!
-                        val user = User(email, password)
+                        val user = UserModel(email, password)
                         fUser.sendEmailVerification()
                         Log.d("RegisterActivity", "Successfully created user with uid: ${task.result?.user?.uid}")
                         FirebaseDatabase.getInstance().getReference(DB_REFERENCE_PATH)

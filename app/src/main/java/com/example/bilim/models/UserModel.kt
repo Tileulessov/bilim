@@ -1,6 +1,6 @@
-package com.example.bilim.registration
+package com.example.bilim.models
 
-data class User (
+data class UserModel (
      var fullName:String? = "",
      var email:String? = "",
      var age:String?="",

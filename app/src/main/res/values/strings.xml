@@ -34,4 +34,8 @@
     <string name="search_error_text">Please write what you are looking for</string>
     <string name="user_name">Welcome %1s</string>
     <string name="error_pdf_url">Problem with internet connection</string>
+    <string name="teacher_text">Teacher</string>
+    <string name="student_text">Student</string>
+    <string name="i_agree_text">I agree</string>
+    <string name="consent_to_the_collection_personal_data">Consent to the collection and processing of personal data</string>
 </resources>
