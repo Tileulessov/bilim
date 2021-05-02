@@ -129,7 +129,8 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
     }
 
     private fun getSavedUserName(): String? {
-        val sharedPref: SharedPreferences = getSharedPreferences(Constants.APPLICATION_SHARED_PREF, Context.MODE_PRIVATE)
+        val sharedPref: SharedPreferences = getSharedPreferences(Constants.USER_NAME_SHARED_PREF, Context.MODE_PRIVATE)
         return sharedPref.getString(Constants.USER_NAME,"Welcome to Bilim")
+
     }
 }

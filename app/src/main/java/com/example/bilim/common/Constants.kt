@@ -7,7 +7,7 @@ object Constants {
     const val LESSON_TITLE = "title"
     const val COURSE_CONTENT_TEXT = "content_text"
     const val USER_NAME = "user_name"
-    const val APPLICATION_SHARED_PREF = "application"
+    const val USER_NAME_SHARED_PREF = "user_name"
     const val GOOGLE_PDF_READ = "https://docs.google.com/gview?embedded=true&url="
     const val AUDIO_TAG = 140
     const val VIDEO_TAG = 137

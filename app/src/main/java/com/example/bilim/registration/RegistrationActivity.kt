@@ -13,14 +13,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.bilim.R
 import com.example.bilim.common.Constants
+import com.example.bilim.common.dataSourse.SharedPrefDataSource
 import com.example.bilim.models.UserModel
 import com.example.bilim.sign.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
+import org.koin.android.ext.android.inject
 
 private const val DB_REFERENCE_PATH = "users"
-class RegistrationActivity : AppCompatActivity() {
+class RegistrationActivity: AppCompatActivity() {
     private lateinit var logoTextView: TextView
     private lateinit var mAuth: FirebaseAuth
     private lateinit var fullNameEditText: EditText
@@ -31,6 +33,8 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var textWatcher: TextWatcher
     private lateinit var progressBar: ProgressBar
     private lateinit var userHaveAcc:TextView
+
+    private val userNameSharedPref: SharedPrefDataSource by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -153,10 +157,5 @@ class RegistrationActivity : AppCompatActivity() {
                 }
     }
 
-    private fun saveUserNameSharedPref(userName:String){
-        val sharedPref:SharedPreferences = getSharedPreferences(Constants.APPLICATION_SHARED_PREF,Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putString(Constants.USER_NAME,userName)
-        editor.apply()
-    }
+    private fun saveUserNameSharedPref(userName:String) = userNameSharedPref.saveValue(Constants.USER_NAME_SHARED_PREF,userName)
 }
