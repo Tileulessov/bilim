@@ -1,4 +1,7 @@
 package com.example.bilim.course_page.presentation
 
-class CoursePageViewModel {
+import androidx.lifecycle.ViewModel
+
+class CoursePageViewModel: ViewModel() {
+
 }
