@@ -176,40 +176,46 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/activity_registration_register_button"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/activity_registration_register_radio_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_registration_register_agreement_description_text_view"
         app:switchPadding="@dimen/padding_16"
         tools:ignore="RtlCompat" />
-
-    <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/activity_registration_register_student_check_box"
+<RadioGroup
+    android:id="@+id/activity_registration_register_radio_group"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:layout_marginVertical="@dimen/margin_8"
+    app:layout_constraintTop_toBottomOf="@+id/activity_registration_register_agreement_switch"
+    app:layout_constraintBottom_toTopOf="@+id/activity_registration_register_button">
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/activity_registration_register_student_radio_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin_10"
+        android:layout_marginHorizontal="@dimen/margin_16"
         android:button="@drawable/checkbox_custom"
         android:text="@string/student_text"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/activity_registration_register_button"
-        app:layout_constraintEnd_toStartOf="@+id/activity_registration_register_teacher_check_box"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_registration_register_agreement_switch" />
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_bold"
+        android:textAlignment="center" />
 
-    <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/activity_registration_register_teacher_check_box"
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/activity_registration_register_teacher_radio_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin_16"
+        android:layout_marginHorizontal="@dimen/margin_16"
         android:button="@drawable/checkbox_custom"
+        android:fontFamily="@font/roboto_bold"
+        android:textStyle="bold"
         android:text="@string/teacher_text"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/activity_registration_register_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/activity_registration_register_student_check_box"
-        app:layout_constraintTop_toBottomOf="@+id/activity_registration_register_agreement_switch" />
-
+        android:textAlignment="center" />
+</RadioGroup>
     <Button
         android:id="@+id/activity_registration_register_button"
         android:layout_width="0dp"
@@ -227,7 +233,7 @@
         app:layout_constraintBottom_toTopOf="@+id/activity_registration_user_have_account_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_registration_register_teacher_check_box" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_registration_register_radio_group" />
 
     <TextView
         android:id="@+id/activity_registration_user_have_account_text_view"

@@ -41,4 +41,5 @@
     <string name="student_text">Student</string>
     <string name="i_agree_text">I agree</string>
     <string name="consent_to_the_collection_personal_data">Согласие на сбор и обработку персональных данных</string>
+    <string name="video_verification_text">Pass video verification</string>
 </resources>

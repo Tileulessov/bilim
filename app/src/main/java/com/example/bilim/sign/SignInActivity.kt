@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import com.example.bilim.R
 import com.example.bilim.course_page.presentation.CoursePageActivity
 import com.example.bilim.forgot_password.UserForgotPasswordActivity
-import com.example.bilim.registration.RegistrationActivity
+import com.example.bilim.registration.presentation.RegistrationActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
