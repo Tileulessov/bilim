@@ -21,7 +21,7 @@
     <string name="invalid_email_error_text">Пожалуйста, предоставьте действительный адрес электронной почты!</string>
     <string name="password_empty_error_text">Напишите пароль!</string>
     <string
-        name="password_length_error_text">Минимальная длина пароля должна составлять 8 символов!</string>
+        name="password_error_text">Минимальная длина пароля должна составлять 8 символов!</string>
     <string name="already_have_an_account">Уже есть аккаунт?</string>
     <string name="successfully_created_user_text">Пользователь успешно создан!</string>
     <string name="failed_to_create_user_text">Не удалось создать пользователя</string>

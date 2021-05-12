@@ -97,7 +97,7 @@ class SignInActivity : AppCompatActivity() {
             return
         }
         if (password.length < 8) {
-            passwordEditText.error = getString(R.string.password_length_error_text)
+            passwordEditText.error = getString(R.string.password_error_text)
             passwordEditText.requestFocus()
             return
         }

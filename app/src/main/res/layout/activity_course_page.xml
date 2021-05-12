@@ -78,6 +78,7 @@
             android:background="@drawable/bg_search_edit_text"
             android:drawableEnd="@drawable/ic_search"
             android:hint="@string/search_text"
+            android:maxLines="1"
             android:padding="@dimen/padding_8"
             android:textColor="@color/black"
             android:textColorHint="@color/MDarkGrey"

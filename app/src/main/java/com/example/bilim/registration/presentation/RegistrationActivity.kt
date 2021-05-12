@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.android.ext.android.inject
 import java.util.*
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 import kotlin.collections.HashMap
 
 class RegistrationActivity : AppCompatActivity() {
@@ -38,7 +40,6 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var studentRadioButton: RadioButton
     private lateinit var radioGroup: RadioGroup
     private var isTeacher: Boolean = false
-    private var valid: Boolean = false
     private val userNameSharedPref: SharedPrefDataSource by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,39 +80,50 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkFieldAndRegister() {
+    private fun checkField(): Boolean {
+        var isValid: Boolean = false
         val email: String = emailEditText.text.toString().trim()
-        val fullName: String = fullNameEditText.text.toString().trim()
         val password: String = passwordEditText.text.toString().trim()
-        val age: String = ageEditText.text.toString().trim()
 
-        checkEditTextField(emailEditText)
-        checkEditTextField(fullNameEditText)
-        checkEditTextField(passwordEditText)
-        checkEditTextField(ageEditText)
+        isValid = checkEditTextField(emailEditText)
+        isValid = checkEditTextField(fullNameEditText)
+        isValid = checkEditTextField(passwordEditText)
+        isValid = checkEditTextField(ageEditText)
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailEditText.error = getString(R.string.invalid_email_error_text)
             emailEditText.requestFocus()
-            return
+            isValid = false
+        } else {
+            isValid = true
         }
-        if (password.length < 8) {
-            passwordEditText.error = getString(R.string.password_length_error_text)
+        if (
+            password.length < 8
+        ) {
+            passwordEditText.error = getString(R.string.password_error_text)
             passwordEditText.requestFocus()
-            return
+            isValid = false
+        } else {
+            isValid = true
         }
-        if (radioGroup.getCheckedRadioButtonId() == -1) {
+        isValid = agreementSwitch.isChecked
+        if (radioGroup.checkedRadioButtonId == -1) {
             studentRadioButton.error = "Please check"
             teacherRadioButton.error = "Please check"
             studentRadioButton.requestFocus()
             teacherRadioButton.requestFocus()
-            return
+            isValid = false
+        } else {
+            isValid = true
         }
-        saveUserNameSharedPref(fullName)
-        performUserRegister(email, password)
+        return isValid
     }
 
-    private fun performUserRegister(email: String, password: String) {
+    private fun performUserRegister() {
+        val email: String = emailEditText.text.toString().trim()
+        val fullName: String = fullNameEditText.text.toString().trim()
+        val password: String = passwordEditText.text.toString().trim()
+        val age: String = ageEditText.text.toString().trim()
         progressBar.isVisible = true
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
@@ -121,9 +133,9 @@ class RegistrationActivity : AppCompatActivity() {
                     val df = fStore.collection("Users").document(fUser.uid)
                     val userInfo = HashMap<String, Any>()
                     fUser.sendEmailVerification()
-                    userInfo.put("fullname", fullNameEditText.text.toString())
+                    userInfo.put("fullname", fullName)
                     userInfo.put("email", email)
-                    userInfo.put("age", ageEditText.text.toString())
+                    userInfo.put("age", age)
                     if (isTeacher) {
                         userInfo.put("isTeacher", "1")
                     } else {
@@ -150,6 +162,7 @@ class RegistrationActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        saveUserNameSharedPref(fullName)
     }
 
     private fun saveUserNameSharedPref(userName: String) =
@@ -161,30 +174,33 @@ class RegistrationActivity : AppCompatActivity() {
                 registerButton.text = getString(R.string.video_verification_text)
                 agreementDescTextView.visibility = View.VISIBLE
                 agreementSwitch.visibility = View.VISIBLE
+                if (checkField())
+                    registerButton.isEnabled = true
                 registerButton.setOnClickListener {
-                    if (agreementSwitch.isChecked)
-                        checkFieldAndRegister()
+                    performUserRegister()
                 }
-                registerButton.isEnabled = true
                 isTeacher = true
             } else if (checkedId == R.id.activity_registration_register_student_radio_button) {
                 registerButton.text = getString(R.string.register_button_text)
-                registerButton.setOnClickListener {
-                    checkFieldAndRegister()
+                agreementDescTextView.visibility = View.GONE
+                agreementSwitch.visibility = View.GONE
+                if (checkField()) {
+                    registerButton.isEnabled = true
                 }
-                registerButton.isEnabled = true
+                registerButton.setOnClickListener {
+                    performUserRegister()
+                }
                 isTeacher = false
             }
         }
         return isTeacher
     }
 
-    private fun checkEditTextField(textField: EditText) {
-        if (textField.text.toString().isBlank()) {
+    private fun checkEditTextField(textField: EditText): Boolean {
+        return if (textField.text.toString().isBlank()) {
             textField.error = "This is a required field"
             textField.requestFocus()
-            return
-            valid = false
-        } else valid = true
+            false
+        } else true
     }
 }

@@ -20,7 +20,7 @@
     <string name="email_empty_error_text">Email жазыңыз!</string>
     <string name="invalid_email_error_text">Жарамды email мекен-жайын жазыңыз!</string>
     <string name="password_empty_error_text">Құпия сөз жазыңыз!</string>
-    <string name="password_length_error_text">Құпия сөз кемдеген 8 символдан тұруы қажет!</string>
+    <string name="password_error_text">Құпия сөз кемдеген 8 символдан тұруы қажет!</string>
     <string name="already_have_an_account">Сізде аккаунт барма?</string>
     <string name="successfully_created_user_text">Пайдаланушыны сәтті құрылды</string>
     <string name="failed_to_create_user_text">Пайдаланушы құру уақытында сәтсіздікке ұшырады</string>
