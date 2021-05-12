@@ -43,4 +43,5 @@
     <string name="consent_to_the_collection_personal_data">Согласие на сбор и обработку персональных данных</string>
     <string name="video_verification_text">Pass video verification</string>
     <string name="no_course_text">it is still quiet here</string>
+    <string name="create_course_text">Create Course</string>
 </resources>

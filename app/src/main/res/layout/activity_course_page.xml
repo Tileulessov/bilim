@@ -31,11 +31,11 @@
 
             <ImageView
                 android:id="@+id/activity_course_page_user_profile_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center|end"
                 android:layout_marginEnd="@dimen/margin_16"
-                android:src="@drawable/user_3" />
+                android:src="@drawable/ic_user" />
         </Toolbar>
 
         <ImageView

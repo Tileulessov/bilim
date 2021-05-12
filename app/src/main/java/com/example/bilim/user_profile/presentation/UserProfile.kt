@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -23,6 +24,7 @@ class UserProfile : AppCompatActivity() {
     private lateinit var userNameTextView: TextView
     private lateinit var userAgeTextView: TextView
     private lateinit var userEmailTextView: TextView
+    private lateinit var userImage: ImageView
     private lateinit var fStore: FirebaseFirestore
     private lateinit var fAuth: FirebaseAuth
     private lateinit var df: DocumentReference
@@ -41,11 +43,12 @@ class UserProfile : AppCompatActivity() {
     }
 
     private fun initViews() {
-        logoutButton = findViewById(R.id.activty_user_profile_logout_button)
-        userNameTextView = findViewById(R.id.activity_user_profile_user_name_text_view)
-        userAgeTextView = findViewById(R.id.activity_user_profile_user_age_text_view)
-        userEmailTextView = findViewById(R.id.activity_user_profile_user_email_text_view)
-        createCourseButton = findViewById(R.id.activty_user_profile_create_button)
+        userImage = findViewById(R.id.activity_user_profile_user_image_img_view)
+        logoutButton = findViewById(R.id.activity_user_profile_logout_button)
+        userNameTextView = findViewById(R.id.activity_user_profile_name_text_view)
+        userAgeTextView = findViewById(R.id.activity_user_profile_age_text_view)
+        userEmailTextView = findViewById(R.id.activity_user_profile_email_text_view)
+        createCourseButton = findViewById(R.id.activity_user_profile_create_button)
         progressBar = findViewById(R.id.activity_user_profile_progress_bar)
         fAuth = FirebaseAuth.getInstance()
         fStore = FirebaseFirestore.getInstance()
