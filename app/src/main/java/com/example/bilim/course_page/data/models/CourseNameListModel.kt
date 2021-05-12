@@ -10,5 +10,7 @@ data class CourseNameListModel(
         @PropertyName("bgColor")
         var bgColor: String = "",
         @PropertyName("isFavorite")
-        var isFavorite:Boolean = false
+        var isFavorite:Boolean = false,
+        @PropertyName("isChecked")
+        var isChecked: Boolean = false
 )

@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".course_page.presentation.CoursePageActivity"
     android:background="@color/white"
-    >
+    tools:context=".course_page.presentation.CoursePageActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_course_content_details_constraint"
         android:layout_width="match_parent"
@@ -18,38 +18,38 @@
         app:layout_constraintHeight_percent="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"
-        >
+        app:layout_constraintVertical_bias="0">
+
         <Toolbar
             android:id="@+id/activity_event_details_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:targetApi="lollipop"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="lollipop">
 
             <ImageView
-                android:id="@+id/activity_event_details_favorite_image_view"
+                android:id="@+id/activity_course_page_user_profile_image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|end"
                 android:layout_marginEnd="@dimen/margin_16"
                 android:src="@drawable/user_3" />
         </Toolbar>
+
         <ImageView
-            android:id="@+id/activity_course_page_user_profile_image_view"
+            android:id="@+id/activity_course_page_bg_image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.7"
+            android:adjustViewBounds="true"
+            android:alpha="0.5"
+            android:scaleType="centerCrop"
             android:src="@drawable/bg_course_page_photo"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/activity_course_page_user_name_text_view"
@@ -59,7 +59,7 @@
             android:layout_marginTop="124dp"
             android:background="@drawable/bg_user_name"
             android:fontFamily="@font/lato"
-            android:text="Qosh keldiniz, "
+            android:text="@string/user_name"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/text_size_32"
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_28"
-            android:layout_marginTop="@dimen/margin_40"
+            android:layout_marginVertical="@dimen/margin_16"
             android:background="@drawable/bg_search_edit_text"
             android:drawableEnd="@drawable/ic_search"
             android:hint="@string/search_text"
@@ -96,27 +96,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_course_page_search_edit_text"
-            tools:ignore="NotSibling"
-            >
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never"
-                android:scrollbars="none">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/activity_course_page_user_course_recycler"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/user_courses_item" />
-            </HorizontalScrollView>
-        </LinearLayout>
-
+            tools:ignore="NotSibling" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -127,11 +107,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintHeight_percent="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1"
-        >
+        app:layout_constraintVertical_bias="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -141,28 +120,49 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/courses_text"
             android:textColor="@color/MWhiteBlue"
-            android:textSize="@dimen/text_size_18"
-            />
+            android:textSize="@dimen/text_size_18" />
 
-        <ScrollView
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swipeRefresh"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="never"
-            android:scrollbars="none"
-            >
+            android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/activity_course_content_recycler_view"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
                 android:overScrollMode="never"
-                android:paddingBottom="@dimen/padding_20"
-                android:scrollbars="none"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/course_item"
-                >
-            </androidx.recyclerview.widget.RecyclerView>
-        </ScrollView>
+                android:scrollbars="none">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/activity_course_content_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingBottom="@dimen/padding_20"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/course_item" />
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_course_page_favorite_button"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:background="@drawable/bg_favorite_button"
+        android:drawableLeft="@drawable/ic_like_blue"
+        android:fontFamily="@font/roboto_medium"
+        android:padding="@dimen/padding_8"
+        android:text="Favorite Course"
+        android:textAllCaps="false"
+        android:textColor="#2A81DD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
