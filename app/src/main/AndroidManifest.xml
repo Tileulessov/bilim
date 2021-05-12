@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilimOnlineCourse"
         android:usesCleartextTraffic="true">
+        <activity android:name=".favoriteCourse.FavoriteActivity"></activity>
         <activity
             android:name=".sign.SignInActivity"
             android:theme="@style/SplashScreen">
@@ -29,7 +30,7 @@
         <activity android:name=".registration.presentation.RegistrationActivity" />
         <activity android:name=".forgot_password.UserForgotPasswordActivity" />
         <activity android:name=".course_page.presentation.CoursePageActivity" />
-        <activity android:name=".lesson.questions.presentation.QuestionsActivity"></activity>
+        <activity android:name=".lesson.questions.presentation.QuestionsActivity" />
         <activity android:name=".lesson.videoLesson.presentation.VideoLessonActivity" />
         <activity android:name=".user_profile.presentation.UserProfile" />
         <activity android:name=".lesson.presentation.LessonActivity" />
