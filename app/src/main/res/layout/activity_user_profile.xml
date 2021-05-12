@@ -12,6 +12,24 @@
         android:orientation="vertical"
         tools:context=".user_profile.presentation.UserProfile">
 
+        <Toolbar
+            android:id="@+id/activity_user_profile_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange_bg"
+            android:navigationIcon="@drawable/ic_arrow_back_left_bold_copy_white"
+            tools:targetApi="lollipop">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:fontFamily="@font/rage"
+                android:text="@string/logo_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_34" />
+        </Toolbar>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -49,6 +67,7 @@
                     android:layout_marginVertical="@dimen/margin_24"
                     android:background="@drawable/bg_favorite_button"
                     android:text="@string/create_course_text"
+                    android:textColor="@color/orange_bg"
                     android:visibility="gone" />
             </LinearLayout>
         </RelativeLayout>

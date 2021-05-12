@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.widget.*
 import androidx.core.view.isVisible
 import com.example.bilim.R
 import com.example.bilim.sign.SignInActivity
@@ -30,6 +27,7 @@ class UserProfile : AppCompatActivity() {
     private lateinit var df: DocumentReference
     private lateinit var createCourseButton: Button
     private lateinit var progressBar: ProgressBar
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +38,7 @@ class UserProfile : AppCompatActivity() {
         val fUser = fAuth.currentUser!!
         userDetails(fUser.uid)
         checkUserAccessLevel(fUser.uid)
+        onClickListener()
     }
 
     private fun initViews() {
@@ -50,6 +49,7 @@ class UserProfile : AppCompatActivity() {
         userEmailTextView = findViewById(R.id.activity_user_profile_email_text_view)
         createCourseButton = findViewById(R.id.activity_user_profile_create_button)
         progressBar = findViewById(R.id.activity_user_profile_progress_bar)
+        toolbar = findViewById(R.id.activity_user_profile_toolbar)
         fAuth = FirebaseAuth.getInstance()
         fStore = FirebaseFirestore.getInstance()
     }
@@ -79,6 +79,12 @@ class UserProfile : AppCompatActivity() {
             if (it.getString("isTeacher") != null) {
                 createCourseButton.visibility = View.VISIBLE
             }
+        }
+    }
+
+    private fun onClickListener() {
+        toolbar.setNavigationOnClickListener {
+            finish()
         }
     }
 }
