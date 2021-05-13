@@ -1,4 +1,4 @@
-package com.example.bilim.common.dialogFragment
+package com.example.bilim.CreateCourseDialogFragment
 
 import android.os.Bundle
 import android.text.Editable
@@ -6,17 +6,15 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.bilim.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.common.base.CharMatcher.any
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_common_bottom_sheet_dialog.*
 
-class CommonBottomSheetDialogFragment : BottomSheetDialogFragment() {
+class CreateCourseBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     private lateinit var fStore: FirebaseFirestore
     private lateinit var textWatcher: TextWatcher

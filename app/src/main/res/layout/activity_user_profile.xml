@@ -59,17 +59,38 @@
                     android:textSize="@dimen/text_size_26"
                     android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/activity_user_profile_create_button"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+
+                    android:id="@+id/activity_user_profile_create_linear"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/margin_24"
                     android:layout_marginVertical="@dimen/margin_24"
-                    android:padding="@dimen/padding_8"
-                    android:background="@drawable/bg_favorite_button"
-                    android:text="@string/create_course_text"
-                    android:textColor="@color/orange_bg"
-                    android:visibility="visible" />
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/activity_user_profile_create_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8"
+                        android:background="@drawable/bg_favorite_button"
+                        android:padding="@dimen/padding_8"
+                        android:text="@string/create_course_text"
+                        android:textColor="@color/orange_bg" />
+
+                    <Button
+                        android:id="@+id/activity_user_profile_fill_course_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_8"
+                        android:background="@drawable/bg_favorite_button"
+                        android:visibility="gone"
+                        android:padding="@dimen/padding_8"
+                        android:text="Fill content"
+                        android:textColor="@color/orange_bg" />
+                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
 

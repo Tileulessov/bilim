@@ -7,13 +7,10 @@ import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
 import com.example.bilim.R
-import com.example.bilim.common.dialogFragment.CommonBottomSheetDialogFragment
+import com.example.bilim.CreateCourseDialogFragment.CreateCourseBottomSheetDialogFragment
 import com.example.bilim.sign.SignInActivity
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 
 class UserProfile : AppCompatActivity() {
@@ -29,6 +26,7 @@ class UserProfile : AppCompatActivity() {
     private lateinit var createCourseButton: Button
     private lateinit var progressBar: ProgressBar
     private lateinit var toolbar: Toolbar
+    private lateinit var linearLayout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +49,7 @@ class UserProfile : AppCompatActivity() {
         createCourseButton = findViewById(R.id.activity_user_profile_create_button)
         progressBar = findViewById(R.id.activity_user_profile_progress_bar)
         toolbar = findViewById(R.id.activity_user_profile_toolbar)
+        linearLayout = findViewById(R.id.activity_user_profile_create_linear)
         fAuth = FirebaseAuth.getInstance()
         fStore = FirebaseFirestore.getInstance()
     }
@@ -78,7 +77,7 @@ class UserProfile : AppCompatActivity() {
         df = fStore.collection("Users").document(uid)
         df.get().addOnSuccessListener {
             if (it.getString("isTeacher") != null) {
-                createCourseButton.visibility = View.VISIBLE
+                linearLayout.visibility = View.VISIBLE
             }
         }
     }
@@ -92,6 +91,6 @@ class UserProfile : AppCompatActivity() {
         }
     }
     private fun showCreateCourseDialog() {
-        CommonBottomSheetDialogFragment().show(supportFragmentManager, CommonBottomSheetDialogFragment.CREATE_COURSE)
+        CreateCourseBottomSheetDialogFragment().show(supportFragmentManager, CreateCourseBottomSheetDialogFragment.CREATE_COURSE)
     }
 }
