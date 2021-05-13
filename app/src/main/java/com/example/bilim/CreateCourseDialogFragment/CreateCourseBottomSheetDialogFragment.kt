@@ -9,15 +9,19 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import com.example.bilim.R
+import com.example.bilim.common.dataSourse.SharedPrefDataSource
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_common_bottom_sheet_dialog.*
+import org.koin.android.ext.android.inject
 
 class CreateCourseBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     private lateinit var fStore: FirebaseFirestore
     private lateinit var textWatcher: TextWatcher
+    private val userUidSharedPref: SharedPrefDataSource by inject()
+
     override fun getTheme() = R.style.CommonBottomSheetDialogTheme
 
     override fun onCreateView(
@@ -44,6 +48,7 @@ class CreateCourseBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 }
             }
         }
+        // val contentMaker = arguments?.getString("TEXT", "User Name")
         course_name_edit_text.addTextChangedListener(textWatcher)
         course_icon_edit_text.addTextChangedListener(textWatcher)
 
@@ -54,11 +59,13 @@ class CreateCourseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     private fun createCourse() {
+        val contentMaker = userUidSharedPref.getValue("content_maker")
         val courseName = course_name_edit_text.text.toString()
         val courseIcon = course_icon_edit_text.text.toString()
         val df = fStore.collection("course").document(courseName)
         try {
             val courseInfo = HashMap<String, Any>()
+            courseInfo.put("contentMaker", contentMaker.toString())
             courseInfo.put("courseName", courseName)
             courseInfo.put("courseIcon", courseIcon)
             courseInfo.put("isChecked", false)

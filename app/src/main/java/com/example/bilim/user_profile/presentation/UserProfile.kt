@@ -1,17 +1,20 @@
 package com.example.bilim.user_profile.presentation
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.example.bilim.R
 import com.example.bilim.CreateCourseDialogFragment.CreateCourseBottomSheetDialogFragment
+import com.example.bilim.R
+import com.example.bilim.common.Constants
+import com.example.bilim.common.dataSourse.SharedPrefDataSource
 import com.example.bilim.sign.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import org.koin.android.ext.android.inject
 
 class UserProfile : AppCompatActivity() {
 
@@ -27,6 +30,7 @@ class UserProfile : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var toolbar: Toolbar
     private lateinit var linearLayout: LinearLayout
+    private val userUidSharedPref: SharedPrefDataSource by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,6 +84,10 @@ class UserProfile : AppCompatActivity() {
                 linearLayout.visibility = View.VISIBLE
             }
         }
+        saveUserUidSharedPref(uid)
+    }
+
+    private fun checkIsCourseCreate() {
     }
 
     private fun onClickListener() {
@@ -90,7 +98,15 @@ class UserProfile : AppCompatActivity() {
             showCreateCourseDialog()
         }
     }
+
+    private fun saveUserUidSharedPref(userUid: String) {
+        userUidSharedPref.saveValue("content_maker", userUid)
+    }
+
     private fun showCreateCourseDialog() {
-        CreateCourseBottomSheetDialogFragment().show(supportFragmentManager, CreateCourseBottomSheetDialogFragment.CREATE_COURSE)
+        CreateCourseBottomSheetDialogFragment().show(
+            supportFragmentManager,
+            CreateCourseBottomSheetDialogFragment.CREATE_COURSE
+        )
     }
 }
