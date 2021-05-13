@@ -65,10 +65,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginVertical="@dimen/margin_24"
+                    android:padding="@dimen/padding_8"
                     android:background="@drawable/bg_favorite_button"
                     android:text="@string/create_course_text"
                     android:textColor="@color/orange_bg"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
             </LinearLayout>
         </RelativeLayout>
 
