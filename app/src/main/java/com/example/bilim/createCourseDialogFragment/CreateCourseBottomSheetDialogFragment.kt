@@ -1,4 +1,4 @@
-package com.example.bilim.CreateCourseDialogFragment
+package com.example.bilim.createCourseDialogFragment
 
 import android.os.Bundle
 import android.text.Editable

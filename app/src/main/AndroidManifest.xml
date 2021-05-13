@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilimOnlineCourse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".favoriteCourse.FavoriteActivity"></activity>
+        <activity android:name=".createContent.CreateContentActivity"></activity>
+        <activity android:name=".favoriteCourse.FavoriteActivity" />
         <activity
             android:name=".sign.SignInActivity"
             android:theme="@style/SplashScreen">
