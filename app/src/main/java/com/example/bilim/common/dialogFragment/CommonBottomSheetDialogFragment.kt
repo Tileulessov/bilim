@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.example.bilim.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.common.base.CharMatcher.any
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_common_bottom_sheet_dialog.*
 
@@ -31,9 +32,23 @@ class CommonBottomSheetDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fStore = FirebaseFirestore.getInstance()
-        if (checkFields()) {
-            create_button.isEnabled = true
+        textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                course_icon_edit_text.error = null
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                if (checkFields()) {
+                    create_button.isEnabled = true
+                }
+            }
         }
+        course_name_edit_text.addTextChangedListener(textWatcher)
+        course_icon_edit_text.addTextChangedListener(textWatcher)
+
         create_button.setOnClickListener {
             createCourse()
             dismiss()
@@ -44,12 +59,17 @@ class CommonBottomSheetDialogFragment : BottomSheetDialogFragment() {
         val courseName = course_name_edit_text.text.toString()
         val courseIcon = course_icon_edit_text.text.toString()
         val df = fStore.collection("course").document(courseName)
-        val courseInfo = HashMap<String, Any>()
-        courseInfo.put("courseName", courseName)
-        courseInfo.put("courseIcon", courseIcon)
-        courseInfo.put("isChecked", false)
-        courseInfo.put("isFavorite", false)
-        df.set(courseInfo)
+        try {
+            val courseInfo = HashMap<String, Any>()
+            courseInfo.put("courseName", courseName)
+            courseInfo.put("courseIcon", courseIcon)
+            courseInfo.put("isChecked", false)
+            courseInfo.put("isFavorite", false)
+            df.set(courseInfo)
+            Toast.makeText(requireActivity(), "Course create success", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            FirebaseCrashlytics.getInstance().recordException(e)
+        }
     }
 
     private fun checkFields(): Boolean {
@@ -57,29 +77,16 @@ class CommonBottomSheetDialogFragment : BottomSheetDialogFragment() {
         val illegalCharacters = setOf("https://", "http://", '/', "png")
         var isValid: Boolean = false
 
-        textWatcher = object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                isValid = (validFields(course_name_edit_text) || validFields(course_icon_edit_text))
-                isValid = if (courseIcon.any(illegalCharacters::contains)
-                ) {
-                    course_icon_edit_text.error = null
-                    true
-                } else {
-                    course_icon_edit_text.error =
-                        "Адресс ссылки должен содержать : (https://), (http://), '/', (png)"
-                    false
-                }
-            }
+        return if (validFields(course_name_edit_text) && validFields(course_icon_edit_text)) {
+            true
+        } else if (!courseIcon.any(illegalCharacters::contains)
+        ) {
+            course_icon_edit_text.error =
+                "Адресс ссылки должен содержать : (https://), (http://), '/', (png)"
+            false
+        } else {
+            false
         }
-        course_name_edit_text.addTextChangedListener(textWatcher)
-        course_icon_edit_text.addTextChangedListener(textWatcher)
-        return isValid
     }
 
     private fun validFields(textField: EditText): Boolean {
