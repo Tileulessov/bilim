@@ -20,4 +20,16 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="CommonBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CommonAppModalStyle</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="colorPrimary">@color/orange_bg</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="CommonAppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_dialog_bg</item>
+    </style>
+
 </resources>

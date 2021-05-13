@@ -7,8 +7,6 @@ data class CourseNameListModel(
         var courseName: String = "",
         @PropertyName("iconUrl")
         var iconUrl: String = "",
-        @PropertyName("bgColor")
-        var bgColor: String = "",
         @PropertyName("isFavorite")
         var isFavorite:Boolean = false,
         @PropertyName("isChecked")

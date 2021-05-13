@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
 import com.example.bilim.R
+import com.example.bilim.common.dialogFragment.CommonBottomSheetDialogFragment
 import com.example.bilim.sign.SignInActivity
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
@@ -86,5 +87,11 @@ class UserProfile : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             finish()
         }
+        createCourseButton.setOnClickListener {
+            showCreateCourseDialog()
+        }
+    }
+    private fun showCreateCourseDialog() {
+        CommonBottomSheetDialogFragment().show(supportFragmentManager, CommonBottomSheetDialogFragment.CREATE_COURSE)
     }
 }
