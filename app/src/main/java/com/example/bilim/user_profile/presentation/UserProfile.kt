@@ -100,7 +100,7 @@ class UserProfile : AppCompatActivity() {
     }
 
     private fun saveUserUidSharedPref(userUid: String) {
-        userUidSharedPref.saveValue("content_maker", userUid)
+        userUidSharedPref.saveValue(Constants.CONTENT_MAKER, userUid)
     }
 
     private fun showCreateCourseDialog() {

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import com.example.bilim.R
+import com.example.bilim.common.Constants
 import com.example.bilim.common.dataSourse.SharedPrefDataSource
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.crashlytics.FirebaseCrashlytics
@@ -59,7 +60,7 @@ class CreateCourseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     private fun createCourse() {
-        val contentMaker = userUidSharedPref.getValue("content_maker")
+        val contentMaker = userUidSharedPref.getValue(Constants.CONTENT_MAKER)
         val courseName = course_name_edit_text.text.toString()
         val courseIcon = course_icon_edit_text.text.toString()
         val df = fStore.collection("course").document(courseName)

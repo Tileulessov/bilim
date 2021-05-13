@@ -11,4 +11,5 @@ object Constants {
     const val GOOGLE_PDF_READ = "https://docs.google.com/gview?embedded=true&url="
     const val AUDIO_TAG = 140
     const val VIDEO_TAG = 137
+    const val CONTENT_MAKER = "content_maker"
 }
