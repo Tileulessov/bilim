@@ -6,24 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/orange_bg">
-    <Toolbar
-        android:id="@+id/activity_favorite_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/orange_bg"
-        android:navigationIcon="@drawable/ic_arrow_back_left_bold_copy_white"
-        tools:targetApi="lollipop"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/logo_name"
-            android:layout_marginTop="@dimen/margin_8"
-            android:fontFamily="@font/rage"
-            android:textSize="@dimen/text_size_34"/>
-    </Toolbar>
+
     <LinearLayout
-        android:id="@+id/activity_favorite_no_course_linear"
+        android:id="@+id/activity_favorite_empty_course_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -46,12 +31,46 @@
             android:textSize="@dimen/text_size_24" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/activity_favorite_home_button"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:background="@drawable/bg_favorite_button"
+        android:drawableStart="@drawable/ic_like_blue"
+        android:fontFamily="@font/roboto_medium"
+        android:padding="@dimen/padding_8"
+        android:text="@string/favorite_course_text"
+        android:textAllCaps="false"
+        android:textColor="@color/MButtonTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/activity_favorite_has_course_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="gone">
+
+        <Toolbar
+            android:id="@+id/activity_favorite_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/orange_bg"
+            android:navigationIcon="@drawable/ic_arrow_back_left_bold_copy_white"
+            tools:targetApi="lollipop">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:fontFamily="@font/rage"
+                android:text="@string/logo_name"
+                android:textSize="@dimen/text_size_34" />
+        </Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/activity_favorite_recycler_view"

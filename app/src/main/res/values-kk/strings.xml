@@ -42,4 +42,6 @@
     <string name="video_verification_text">Pass video verification</string>
     <string name="no_course_text">it is still quiet here</string>
     <string name="create_course_text">Create Course</string>
+    <string name="favorite_course_text">Favorite Course</string>
+    <string name="home_text">Home</string>
 </resources>

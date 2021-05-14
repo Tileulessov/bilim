@@ -18,7 +18,7 @@ import com.example.bilim.common.listeners.CourseClickListener
 import com.example.bilim.course_content.presentation.CourseContentActivity
 import com.example.bilim.course_page.data.models.CourseNameListModel
 import com.example.bilim.course_page.presentation.view.CoursePageAdapter
-import com.example.bilim.favoriteCourse.FavoriteActivity
+import com.example.bilim.favoriteCourse.presentattion.FavoriteActivity
 import com.example.bilim.user_profile.presentation.UserProfile
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.CollectionReference

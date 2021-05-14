@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/orange_bg"
-    tools:context=".createContent.CreateContentActivity">
+    tools:context=".createContent.presentation.CreateContentActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:hint="url" />
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_create_content_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>

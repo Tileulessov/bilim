@@ -1,4 +1,4 @@
-package com.example.bilim.createContent
+package com.example.bilim.createContent.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

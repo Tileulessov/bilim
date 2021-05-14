@@ -16,4 +16,5 @@
     <color name="MWhiteBlue">#305F72</color>
     <color name="MSkyBlue">#8CC5F1</color>
     <color name="MGreyBlue">#305F72</color>
+    <color name="MButtonTextColor">#2A81DD</color>
 </resources>
