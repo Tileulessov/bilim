@@ -36,6 +36,7 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
     private lateinit var toolbar: Toolbar
     private lateinit var followButton: Button
     private var isFavorite: Boolean? = false
+    private lateinit var bgImageView: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +63,7 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         courseTitleRecycler = findViewById(R.id.activity_course_content_recycler_view)
         toolbar = findViewById(R.id.activity_course_content_toolbar)
         followButton = findViewById(R.id.activity_course_content_follow_button)
+        bgImageView = findViewById(R.id.activity_course_content_bg_image_view)
     }
 
     private fun navigateBack() {
@@ -80,6 +82,7 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         getContent(name)
         onClickListener(name)
         checkState(name)
+        setBackgroundImage(img)
     }
 
     private fun getContent(name: String?) {
@@ -161,5 +164,11 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
                     Toast.makeText(this, "Failed to follow", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun setBackgroundImage(image: String?) {
+        Glide.with(applicationContext)
+            .load(image)
+            .into(bgImageView)
     }
 }

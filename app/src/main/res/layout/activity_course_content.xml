@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:alpha="0.7"
-            android:scaleType="centerCrop"
+            android:scaleType="center"
             android:src="@drawable/bg_kotlin_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

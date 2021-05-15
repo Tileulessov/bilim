@@ -67,7 +67,7 @@ class CreateCourseBottomSheetDialogFragment : BottomSheetDialogFragment() {
             val courseInfo = HashMap<String, Any>()
             courseInfo.put("contentMaker", contentMaker.toString())
             courseInfo.put("courseName", courseName)
-            courseInfo.put("courseIcon", courseIcon)
+            courseInfo.put("iconUrl", courseIcon)
             courseInfo.put("isChecked", false)
             courseInfo.put("isFavorite", false)
             df.set(courseInfo)
