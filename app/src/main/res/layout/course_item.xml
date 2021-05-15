@@ -29,7 +29,7 @@
             android:layout_gravity="center"
             android:text="Kotlin"
             android:textAlignment="center"
-            android:textColor="#305F72"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_size_32" />
     </LinearLayout>
 
