@@ -30,6 +30,15 @@
                 android:textSize="@dimen/text_size_34" />
         </Toolbar>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginBottom="@dimen/margin_16"
+            android:fontFamily="@font/roboto_medium"
+            android:text="My course"
+            android:textSize="@dimen/text_size_24" />
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/activity_create_content_swipeRefresh"
             android:layout_width="match_parent"

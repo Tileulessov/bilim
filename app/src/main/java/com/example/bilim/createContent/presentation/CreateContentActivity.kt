@@ -71,6 +71,10 @@ class CreateContentActivity : AppCompatActivity(), CourseClickListener {
     }
 
     private fun onClickListener() {
+        swipeRefreshLayout.setOnRefreshListener {
+            contentAdapter.notifyDataSetChanged()
+            swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     private fun onBack() {
