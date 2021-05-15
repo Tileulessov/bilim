@@ -19,7 +19,7 @@ class CreateContentAdapter(
         return CreateContentViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(
-                    R.layout.activity_create_content,
+                    R.layout.course_item,
                     parent,
                     false
                 ),

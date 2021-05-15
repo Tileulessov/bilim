@@ -54,6 +54,8 @@ class CoursePageActivity : AppCompatActivity(), CourseClickListener {
                     searchEditText.error = getString(R.string.search_error_text)
                     return
                 } else {
+                    collectionReference
+                        .whereEqualTo("isChecked", true)
                     collectionReference.orderBy("courseName").startAt(p0.toString())
                         .endAt(p0.toString() + "\uf8ff")
                 }

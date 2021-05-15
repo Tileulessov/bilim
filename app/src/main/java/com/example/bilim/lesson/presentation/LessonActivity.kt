@@ -41,7 +41,7 @@ class LessonActivity : AppCompatActivity() {
         contentPdfWebView.settings.builtInZoomControls = true
         progressBar = findViewById(R.id.activity_lesson_progress_bar)
         lessonTitleToolbar = findViewById(R.id.activity_lesson_toolbar)
-        navigateBack()
+        onBack()
         getLessonContent()
     }
 
@@ -91,7 +91,7 @@ class LessonActivity : AppCompatActivity() {
         progressBar.visibility = View.GONE
     }
 
-    private fun navigateBack(){
+    private fun onBack(){
         lessonTitleToolbar.setNavigationOnClickListener {
             finish()
         }

@@ -1,12 +1,12 @@
 package com.example.bilim.course_content.presentation
 
-import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -18,12 +18,9 @@ import com.example.bilim.course_content.presentation.view.ContentAdapter
 import com.example.bilim.lesson.presentation.LessonActivity
 import com.example.bilim.lesson.videoLesson.presentation.VideoLessonActivity
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.listener.multi.BaseMultiplePermissionsListener
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.*
 
 class CourseContentActivity : AppCompatActivity(), ContentClickListener {
 
@@ -32,11 +29,14 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
     private lateinit var courseTitleRecycler: RecyclerView
     private val fStore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var collectionReference: CollectionReference
+    private lateinit var documentReference: DocumentReference
     private lateinit var contentAdapter: ContentAdapter
     private lateinit var toolbar: Toolbar
     private lateinit var followButton: Button
     private var isFavorite: Boolean? = false
     private lateinit var bgImageView: ImageView
+    private lateinit var addFab: FloatingActionButton
+    private val fAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +44,7 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
 
         initViews()
         getCourseDetails()
-        navigateBack()
+        onBack()
     }
 
     override fun onStart() {
@@ -64,9 +64,10 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         toolbar = findViewById(R.id.activity_course_content_toolbar)
         followButton = findViewById(R.id.activity_course_content_follow_button)
         bgImageView = findViewById(R.id.activity_course_content_bg_image_view)
+        addFab = findViewById(R.id.activity_course_content_fab)
     }
 
-    private fun navigateBack() {
+    private fun onBack() {
         toolbar.setNavigationOnClickListener {
             finish()
         }
@@ -83,6 +84,7 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         onClickListener(name)
         checkState(name)
         setBackgroundImage(img)
+        addButtonVisible(name)
     }
 
     private fun getContent(name: String?) {
@@ -170,5 +172,15 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         Glide.with(applicationContext)
             .load(image)
             .into(bgImageView)
+    }
+
+    private fun addButtonVisible(name: String?) {
+        val fUser = fAuth.currentUser!!
+        documentReference = fStore.collection("course").document(name!!)
+        documentReference.get().addOnSuccessListener {
+            if (it.getString("contentMaker") == fUser.uid) {
+                addFab.visibility = View.VISIBLE
+            }
+        }
     }
 }

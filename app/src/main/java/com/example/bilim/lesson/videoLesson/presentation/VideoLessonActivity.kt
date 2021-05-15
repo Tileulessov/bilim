@@ -37,7 +37,7 @@ class VideoLessonActivity : AppCompatActivity() {
         playerView = findViewById(R.id.activity_video_lesson_video_view)
         val title = intent.getStringExtra(Constants.LESSON_TITLE)
         setToolbarTitle(title)
-        navigateBack()
+        onBack()
     }
 
     private fun initPlayer() {
@@ -118,7 +118,7 @@ class VideoLessonActivity : AppCompatActivity() {
         toolbar.title = title
     }
 
-    private fun navigateBack() {
+    private fun onBack() {
         toolbar.setNavigationOnClickListener {
             finish()
         }

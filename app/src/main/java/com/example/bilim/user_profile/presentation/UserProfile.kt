@@ -11,6 +11,7 @@ import com.example.bilim.createCourseDialogFragment.CreateCourseBottomSheetDialo
 import com.example.bilim.R
 import com.example.bilim.common.Constants
 import com.example.bilim.common.dataSourse.SharedPrefDataSource
+import com.example.bilim.createContent.presentation.CreateContentActivity
 import com.example.bilim.sign.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
@@ -48,6 +49,7 @@ class UserProfile : AppCompatActivity() {
         checkUserAccessLevel(fUser.uid)
         checkIsCourseCreate()
         onClickListener()
+        onBack()
     }
 
     private fun initViews() {
@@ -113,13 +115,17 @@ class UserProfile : AppCompatActivity() {
     }
 
     private fun onClickListener() {
-        toolbar.setNavigationOnClickListener {
-            finish()
-        }
         createCourseButton.setOnClickListener {
             showCreateCourseDialog()
         }
         fillCourseButton.setOnClickListener {
+            showCreateContentActivity()
+        }
+    }
+
+    private fun onBack() {
+        toolbar.setNavigationOnClickListener {
+            finish()
         }
     }
 
@@ -132,5 +138,9 @@ class UserProfile : AppCompatActivity() {
             supportFragmentManager,
             CreateCourseBottomSheetDialogFragment.CREATE_COURSE
         )
+    }
+
+    private fun showCreateContentActivity() {
+        startActivity(Intent(this, CreateContentActivity::class.java))
     }
 }

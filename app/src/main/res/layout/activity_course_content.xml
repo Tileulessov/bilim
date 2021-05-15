@@ -75,12 +75,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_80"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/bg_favorite_button"
             android:paddingHorizontal="@dimen/margin_horizontal_50"
             android:text="Follow"
             android:textColor="@color/MButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_course_content_course_name_text_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -128,4 +128,18 @@
                 tools:listitem="@layout/course_list_item" />
         </ScrollView>
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/activity_course_content_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/margin_10"
+        android:backgroundTint="@color/MSkyBlue"
+        android:contentDescription="create content"
+        android:visibility="gone"
+        android:src="@drawable/ic_add"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
