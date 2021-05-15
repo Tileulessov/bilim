@@ -49,7 +49,6 @@ class CreateCourseBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 }
             }
         }
-        // val contentMaker = arguments?.getString("TEXT", "User Name")
         course_name_edit_text.addTextChangedListener(textWatcher)
         course_icon_edit_text.addTextChangedListener(textWatcher)
 

@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".course_page.presentation.CoursePageActivity"
-    >
+    tools:context=".course_page.presentation.CoursePageActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_course_content_details_constraint"
@@ -19,19 +18,17 @@
         app:layout_constraintHeight_percent="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0"
-        >
+        app:layout_constraintVertical_bias="0">
 
         <Toolbar
             android:id="@+id/activity_course_content_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:navigationIcon="@drawable/ic_arrow_back_left_bold_copy_white"
-            tools:targetApi="lollipop"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            tools:targetApi="lollipop" />
 
         <ImageView
             android:id="@+id/activity_course_content_bg_image_view"
@@ -44,8 +41,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/activity_course_content_course_icon_image_view"
@@ -56,27 +52,37 @@
             app:layout_constraintBottom_toTopOf="@id/activity_course_content_course_name_text_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/activity_course_content_course_name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_16"
-            android:layout_marginBottom="@dimen/margin_80"
             android:fontFamily="@font/lato_bold"
             android:text="Course Name"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_34"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/activity_course_content_follow_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_course_content_course_icon_image_view"
-            />
+            app:layout_constraintTop_toBottomOf="@id/activity_course_content_course_icon_image_view" />
 
+        <Button
+            android:id="@+id/activity_course_content_follow_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_80"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_favorite_button"
+            android:paddingHorizontal="@dimen/margin_horizontal_50"
+            android:text="Follow"
+            android:textColor="@color/MButtonTextColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_course_content_course_name_text_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -90,28 +96,25 @@
         app:layout_constraintHeight_percent="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1"
-        >
+        app:layout_constraintVertical_bias="1">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="@dimen/margin_32"
             android:layout_marginVertical="@dimen/margin_16"
             android:fontFamily="@font/roboto_medium"
             android:text="Content"
             android:textAlignment="center"
-            android:layout_gravity="center"
             android:textColor="@color/MWhiteBlue"
-            android:textSize="@dimen/text_size_18"
-            />
+            android:textSize="@dimen/text_size_18" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"
-            android:scrollbars="none"
-            >
+            android:scrollbars="none">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/activity_course_content_recycler_view"
@@ -122,8 +125,7 @@
                 android:paddingBottom="@dimen/padding_20"
                 android:scrollbars="none"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/course_list_item"
-                />
+                tools:listitem="@layout/course_list_item" />
         </ScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

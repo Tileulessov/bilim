@@ -68,7 +68,9 @@ class UserProfile : AppCompatActivity() {
     private fun logoutProfile() {
         logoutButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(this, SignInActivity::class.java))
+            val intent = Intent(this, SignInActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
             finish()
         }
     }
