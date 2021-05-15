@@ -2,6 +2,7 @@ package com.example.bilim.favoriteCourse.presentattion
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -46,6 +47,7 @@ class FavoriteActivity : AppCompatActivity(), CourseClickListener {
     override fun onStart() {
         super.onStart()
         favoriteAdapter.startListening()
+        favoriteAdapter.notifyDataSetChanged()
     }
 
     override fun onStop() {
@@ -91,23 +93,9 @@ class FavoriteActivity : AppCompatActivity(), CourseClickListener {
                 .setQuery(query, CourseNameListModel::class.java)
                 .build()
 
-        favoriteAdapter = FavoriteAdapter(firestoreRecyclerOptions, this)
-        coursePageRecyclerView.layoutManager = LinearLayoutManager(this)
-        coursePageRecyclerView.adapter = favoriteAdapter
-        checkFavoriteExist()
-    }
-
-    private fun navigateToHome() {
-        homeButton.setOnClickListener {
-            startActivity(Intent(this, CoursePageActivity::class.java))
-        }
-    }
-
-    private fun checkFavoriteExist() {
-        favoriteAdapter.registerAdapterDataObserver(object :
-            RecyclerView.AdapterDataObserver() {
-            override fun onItemRangeChanged(positionStart: Int, itemCount: Int) {
-                super.onItemRangeChanged(positionStart, itemCount)
+        favoriteAdapter = object : FavoriteAdapter(firestoreRecyclerOptions, this) {
+            override fun onDataChanged() {
+                super.onDataChanged()
                 if (itemCount == 0) {
                     emptyCourseLinear.visibility = View.VISIBLE
                     favoriteCourseLinear.visibility = View.GONE
@@ -118,6 +106,14 @@ class FavoriteActivity : AppCompatActivity(), CourseClickListener {
                     homeButton.isVisible = false
                 }
             }
-        })
+        }
+        coursePageRecyclerView.layoutManager = LinearLayoutManager(this)
+        coursePageRecyclerView.adapter = favoriteAdapter
+    }
+
+    private fun navigateToHome() {
+        homeButton.setOnClickListener {
+            startActivity(Intent(this, CoursePageActivity::class.java))
+        }
     }
 }

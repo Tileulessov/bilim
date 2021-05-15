@@ -31,29 +31,11 @@
             android:textSize="@dimen/text_size_24" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/activity_favorite_home_button"
-        android:layout_width="154dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="@dimen/margin_16"
-        android:background="@drawable/bg_favorite_button"
-        android:drawableStart="@drawable/ic_like_blue"
-        android:fontFamily="@font/roboto_medium"
-        android:padding="@dimen/padding_8"
-        android:text="@string/favorite_course_text"
-        android:textAllCaps="false"
-        android:textColor="@color/MButtonTextColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <LinearLayout
         android:id="@+id/activity_favorite_has_course_linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:orientation="vertical">
 
         <Toolbar
             android:id="@+id/activity_favorite_toolbar"
@@ -84,6 +66,23 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/course_item" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_favorite_home_button"
+        android:layout_width="154dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:background="@drawable/bg_favorite_button"
+        android:drawableStart="@drawable/ic_like_blue"
+        android:fontFamily="@font/roboto_medium"
+        android:padding="@dimen/padding_8"
+        android:text="@string/favorite_course_text"
+        android:textAllCaps="false"
+        android:textColor="@color/MButtonTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
         android:id="@+id/activity_favorite_progressBar"

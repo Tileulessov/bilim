@@ -5,11 +5,10 @@ import android.view.ViewGroup
 import com.example.bilim.R
 import com.example.bilim.common.listeners.CourseClickListener
 import com.example.bilim.course_page.data.models.CourseNameListModel
-import com.example.bilim.createContent.presentation.view.CreateContentViewHolder
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class FavoriteAdapter(
+open class FavoriteAdapter(
     options: FirestoreRecyclerOptions<CourseNameListModel>,
     private val courseClickListener: CourseClickListener
 ) :
