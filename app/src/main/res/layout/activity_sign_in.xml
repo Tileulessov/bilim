@@ -144,7 +144,7 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_sign_in_password_edit_text"
         />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/activity_sign_in_enter_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

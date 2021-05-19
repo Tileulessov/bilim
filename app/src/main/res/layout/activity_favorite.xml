@@ -51,6 +51,7 @@
                 android:layout_marginTop="@dimen/margin_8"
                 android:fontFamily="@font/rage"
                 android:text="@string/logo_name"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_34" />
         </Toolbar>
 
@@ -67,7 +68,7 @@
             tools:listitem="@layout/course_item" />
     </LinearLayout>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/activity_favorite_home_button"
         android:layout_width="154dp"
         android:layout_height="wrap_content"

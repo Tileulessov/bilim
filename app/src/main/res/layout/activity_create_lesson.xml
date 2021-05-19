@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange_bg"
+    android:orientation="vertical"
+    tools:context=".create_lesson.presentation.CreateLessonActivity">
+
+    <Toolbar
+        android:id="@+id/activity_create_lesson_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/orange_bg"
+        android:navigationIcon="@drawable/ic_arrow_back_left_bold_copy_white"
+        tools:targetApi="lollipop">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:textColor="@color/white"
+            android:fontFamily="@font/rage"
+            android:text="@string/logo_name"
+            android:textSize="@dimen/text_size_34" />
+    </Toolbar>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginVertical="@dimen/margin_16"
+        android:background="@drawable/bg_edit_text_custom"
+        android:textColorHint="@color/MDarkGrey"
+        android:hint="Lesson type">
+
+        <AutoCompleteTextView
+            android:id="@+id/activity_create_lesson_auto_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:inputType="none"
+            android:padding="@dimen/padding_16"
+            android:textColorHint="@color/MDarkGrey" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/activity_create_lesson_course_id_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="id"
+        android:inputType="number"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:text="The field is responsible for the order of the lessons"
+        android:textColor="@color/MDarkGrey" />
+
+    <EditText
+        android:id="@+id/activity_create_lesson_lesson_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="Question"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:text="Write the name of the lesson"
+        android:textColor="@color/MDarkGrey" />
+
+    <EditText
+        android:id="@+id/activity_create_lesson_url_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="Question"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:text="Link to the lesson"
+        android:textColor="@color/MDarkGrey" />
+
+    <EditText
+        android:id="@+id/activity_create_lesson_question_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginVertical="@dimen/margin_16"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="Question"
+        android:inputType="number"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/activity_create_lesson_answer_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginVertical="@dimen/margin_16"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="Answer"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/activity_create_lesson_optionFirst_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="Option A"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/activity_create_lesson_optionSecond_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginVertical="@dimen/margin_16"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="Option B"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/activity_create_lesson_optionThird_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginVertical="@dimen/margin_16"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="Option C"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/activity_create_lesson_optionFourth_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginVertical="@dimen/margin_16"
+        android:background="@drawable/bg_edit_text_custom"
+        android:hint="Option D"
+        android:paddingVertical="@dimen/padding_16"
+        android:paddingLeft="@dimen/padding_8"
+        android:textColorHint="@color/MDarkGrey"
+        android:visibility="gone" />
+</LinearLayout>

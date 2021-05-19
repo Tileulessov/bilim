@@ -27,6 +27,7 @@
                 android:layout_marginTop="@dimen/margin_8"
                 android:fontFamily="@font/rage"
                 android:text="@string/logo_name"
+                android:textColor="@color/white"
                 android:textSize="@dimen/text_size_34" />
         </Toolbar>
 

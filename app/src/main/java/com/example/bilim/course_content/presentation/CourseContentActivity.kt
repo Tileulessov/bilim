@@ -2,11 +2,9 @@ package com.example.bilim.course_content.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,6 +13,7 @@ import com.example.bilim.common.Constants
 import com.example.bilim.common.listeners.ContentClickListener
 import com.example.bilim.course_content.data.model.CourseContentModel
 import com.example.bilim.course_content.presentation.view.ContentAdapter
+import com.example.bilim.create_lesson.presentation.CreateLessonActivity
 import com.example.bilim.lesson.presentation.LessonActivity
 import com.example.bilim.lesson.videoLesson.presentation.VideoLessonActivity
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -132,6 +131,9 @@ class CourseContentActivity : AppCompatActivity(), ContentClickListener {
         followButton.setOnClickListener {
             favoriteCourseState(name)
             checkState(name)
+        }
+        addFab.setOnClickListener {
+            startActivity(Intent(this, CreateLessonActivity::class.java))
         }
     }
 

@@ -17,6 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilimOnlineCourse"
         android:usesCleartextTraffic="true">
+        <activity android:name=".create_lesson.presentation.CreateLessonActivity"></activity>
+        <activity android:name=".quiz_page.QuizActivity" />
         <activity
             android:name=".sign.SignInActivity"
             android:theme="@style/SplashScreen">

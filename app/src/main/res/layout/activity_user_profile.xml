@@ -70,7 +70,7 @@
                     android:orientation="horizontal"
                     android:visibility="gone">
 
-                    <Button
+                    <android.widget.Button
                         android:id="@+id/activity_user_profile_create_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                         android:text="@string/create_course_text"
                         android:textColor="@color/orange_bg" />
 
-                    <Button
+                    <android.widget.Button
                         android:id="@+id/activity_user_profile_fill_course_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/activity_user_profile_logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
